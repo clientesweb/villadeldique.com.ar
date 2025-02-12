@@ -1,12 +1,13 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { useState, useEffect } from "react"
+import { ArrowRight } from "lucide-react"
 
 const announcements = [
-  "Edición Especial 2025: El Futuro del Mercado Inmobiliario en Ecuador, Panamá y Estados Unidos",
-  "Descubre las Últimas Tendencias en Bienes Raíces Internacionales",
-  "Análisis Exclusivo: Oportunidades de Inversión en Tres Países",
+  "Últimas noticias de Villa del Dique",
+  "Descubre los mejores lugares turísticos",
+  "Eventos culturales esta semana",
+  "Conoce los negocios locales destacados",
 ]
 
 export default function TopBanner() {
@@ -23,9 +24,7 @@ export default function TopBanner() {
     <div className="bg-[#FF0000] text-white py-3">
       <div className="container mx-auto text-center flex items-center justify-center">
         <ArrowRight className="mr-2 h-4 w-4" />
-        <p className="text-sm font-medium animate-fade-in">
-          {announcements[currentIndex]}
-        </p>
+        <p className="text-sm font-medium animate-fade-in">{announcements[currentIndex]}</p>
       </div>
     </div>
   )
