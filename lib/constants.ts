@@ -21,6 +21,7 @@ export const SOCIAL_LINKS = {
   twitter: "https://twitter.com/villadeldiquedigital",
   youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx", // Replace with the actual YouTube channel URL
   tiktok: "https://www.tiktok.com/@villadeldiquedigital", // Add this line
+  whatsapp: "https://wa.me/593987167782",
 }
 
 export const CONTACT_INFO = {
