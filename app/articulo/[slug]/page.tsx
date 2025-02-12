@@ -36,9 +36,9 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
 
   const images = [
     article.image,
-    "",
-    "",
-    "",
+    "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1600",
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1600",
+    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1600",
   ]
 
   const nextImage = () => {
@@ -112,23 +112,16 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
               {article.subtitle && <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-800">{article.subtitle}</h2>}
               {article.fullContent ? (
                 <div className="space-y-6">
-                  {article.fullContent.split("\n\n").map((paragraph, index, array) => (
+                  {article.fullContent.split("\n\n").map((paragraph, index) => (
                     <div key={index}>
-                      {paragraph.trim().startsWith("[IMAGE:") ? (
-                        <div className="my-8">
-                          <Image
-                            src={paragraph.replace("[IMAGE:", "").replace("]", "").trim() || "/placeholder.svg"}
-                            alt={`Imagen ilustrativa ${index + 1}`}
-                            width={800}
-                            height={600}
-                            layout="responsive"
-                            className="rounded-lg shadow-md"
-                          />
-                        </div>
-                      ) : paragraph.trim().startsWith("**") && paragraph.trim().endsWith("**") ? (
+                      {paragraph.startsWith("##") ? (
                         <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-800">
-                          {paragraph.replace(/^\*\*|\*\*$/g, "").trim()}
+                          {paragraph.replace("##", "").trim()}
                         </h2>
+                      ) : paragraph.startsWith("#") ? (
+                        <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-700">
+                          {paragraph.replace("#", "").trim()}
+                        </h3>
                       ) : (
                         <p className="text-gray-600 leading-relaxed">
                           {paragraph.split("**").map((part, i) =>
@@ -142,7 +135,7 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
                           )}
                         </p>
                       )}
-                      {index === Math.floor(array.length / 2) && article.importantFact && (
+                      {index === 4 && article.importantFact && (
                         <blockquote className="border-l-4 border-[#FF0000] pl-4 italic my-6 text-gray-700">
                           Dato importante: {article.importantFact}
                         </blockquote>
@@ -153,14 +146,6 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
               ) : (
                 <p>No se ha encontrado contenido detallado para este artículo.</p>
               )}
-
-              {/* Eliminar este bloque
-              {article.importantFact && (
-                <blockquote className="border-l-4 border-[#FF0000] pl-4 italic my-6 text-gray-700">
-                  Dato importante: {article.importantFact}
-                </blockquote>
-              )}
-              */}
 
               <div className="flex flex-wrap justify-center gap-4 my-8">
                 <Button
