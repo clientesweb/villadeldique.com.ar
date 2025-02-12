@@ -1,9 +1,22 @@
-export const ARTICLES_VARIOS = [
+interface Article {
+  id: number
+  slug: string
+  title: string
+  description: string
+  image: string
+  fullContent: string
+  category: string
+  subtitle?: string
+  importantFact?: string
+}
+
+export const ARTICLES_VARIOS: Article[] = [
   {
     id: 1,
     title: "¿Por qué invertir en bienes raíces en Ecuador en 2025?",
     description: "Descubre las razones por las que Ecuador se está convirtiendo en un destino de inversión inmobiliaria cada vez más atractivo.",
-    image: "/por-que-invertir-bienes-raices-ecuador-2025.jpg",
+    image: "https://images.unsplash.com/photo-1518805629729-2f57dd1e2c1f?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3",
+    slug: "por-que-invertir-bienes-raices-ecuador-2025",
     category: "inversion",
     subtitle: "Ecuador: El Nuevo Horizonte de la Inversión Inmobiliaria",
     importantFact: "La inversión extranjera directa en el sector inmobiliario ecuatoriano creció un 15% en el último año.",
@@ -57,7 +70,7 @@ export const ARTICLES_VARIOS = [
     id: 2,
     title: "Tendencias arquitectónicas que están transformando Guayaquil",
     description: "Explora las innovaciones en diseño y construcción que están dando forma al futuro urbano de la Perla del Pacífico.",
-    image: "/tendencias-arquitectonicas-transformando-guayaquil.jpg",
+    image: "https://images.unsplash.com/photo-1609609830354-8f615d61b9c8?auto=format&fit=crop&q=80&w=1965&ixlib=rb-4.0.3",
     slug: "tendencias-arquitectonicas-transformando-guayaquil",
     category: "arquitectura",
     subtitle: "Guayaquil: Innovación Arquitectónica en la Perla del Pacífico",
@@ -117,62 +130,80 @@ Estas innovaciones arquitectónicas no solo están mejorando la estética de la 
     id: 3,
     title: "El auge del mercado inmobiliario en Samborondón: Oportunidades y desafíos",
     description: "Analiza el crecimiento explosivo de Samborondón y lo que significa para inversores y residentes.",
-    image: "/auge-mercado-inmobiliario-samborondon.jpg",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "auge-mercado-inmobiliario-samborondon",
     category: "mercado",
     subtitle: "Samborondón: Un Análisis del Mercado Inmobiliario en Crecimiento",
-    importantFact: "En los últimos cinco años, la plusvalía de las propiedades en Samborondón ha crecido en promedio un 15% anual, superando el rendimiento de otros sectores inmobiliarios en Ecuador. Esta tendencia lo convierte en un destino clave para la inversión en bienes raíces.",
+    importantFact: "El precio promedio de las propiedades en Samborondón ha aumentado un 10% en el último año.",
     fullContent: `
+    Samborondón, ubicado en la provincia del Guayas, Ecuador, se ha convertido en uno de los mercados inmobiliarios más dinámicos y prometedores del país. Este análisis explora las oportunidades y desafíos que presenta este crecimiento explosivo para inversores, desarrolladores y residentes.
 
-Samborondón, ubicado en la provincia del Guayas, Ecuador, ha experimentado un notable crecimiento en su mercado inmobiliario en las últimas décadas. Este desarrollo ha posicionado a la zona como un epicentro de inversión y desarrollo residencial y comercial. Sin embargo, este auge también conlleva desafíos que deben ser considerados por inversores, desarrolladores y residentes.
+    1. Factores impulsores del crecimiento:
+    - Proximidad a Guayaquil, el centro económico de Ecuador.
+    - Desarrollo de infraestructura de alta calidad.
+    - Percepción de mayor seguridad y exclusividad.
+    - Oferta educativa de primer nivel.
 
-Crecimiento y Desarrollo
+    2. Segmentos del mercado en auge:
+    - Residencias de lujo y ultra-lujo.
+    - Complejos de uso mixto (residencial, comercial, oficinas).
+    - Desarrollos de viviendas para la clase media-alta.
+    - Espacios comerciales premium.
 
-Desde el año 2010 hasta el 2024, Samborondón ha evidenciado un crecimiento sostenido en el sector inmobiliario, tanto en el ámbito comercial como residencial. Este incremento se refleja en la valorización de la tierra y en la proliferación de proyectos de alta gama que buscan satisfacer la demanda de un mercado en expansión. 
+    3. Oportunidades de inversión:
+    - Alto potencial de apreciación de propiedades.
+    - Demanda constante de alquileres de alto nivel.
+    - Nichos emergentes como viviendas para estudiantes y profesionales jóvenes.
+    - Desarrollo de amenidades y servicios complementarios.
 
-Un factor clave en este crecimiento es la percepción de seguridad y exclusividad que ofrece Samborondón, atrayendo a familias y empresas que buscan establecerse en un entorno privilegiado.
+    4. Desafíos y consideraciones:
+    - Riesgo de saturación en ciertos segmentos del mercado.
+    - Necesidad de planificación urbana sostenible.
+    - Manejo del tráfico y la movilidad.
+    - Equilibrio entre desarrollo y preservación de áreas verdes.
 
-**Oportunidades de Inversión**
+    5. Tendencias emergentes:
+    - Aumento de la demanda de espacios de trabajo flexibles y coworking.
+    - Creciente interés en desarrollos sostenibles y certificaciones LEED.
+    - Integración de tecnologías smart home en nuevos proyectos.
+    - Expansión hacia nuevas áreas como Isla Mocolí.
 
-El dinamismo del mercado inmobiliario en Samborondón presenta múltiples oportunidades para inversores:
+    6. Perfil del comprador:
+    - Ejecutivos de alto nivel y empresarios locales.
+    - Inversores extranjeros buscando segunda residencia o oportunidades de inversión.
+    - Familias jóvenes en busca de seguridad y calidad de vida.
+    - Expatriados y retirados internacionales.
 
-Alta Plusvalía: La constante valorización de las propiedades asegura retornos atractivos para los inversores a largo plazo.
+    7. Impacto en la economía local:
+    - Generación de empleo en construcción y servicios.
+    - Atracción de inversión extranjera directa.
+    - Desarrollo de industrias de soporte (decoración, mantenimiento, seguridad).
 
-Diversificación de Proyectos: La oferta inmobiliaria abarca desde lujosas urbanizaciones cerradas hasta modernos complejos comerciales, permitiendo a los inversores diversificar sus carteras.
+    8. Regulaciones y aspectos legales:
+    - Cambios en normativas de construcción y uso de suelo.
+    - Incentivos fiscales para ciertos tipos de desarrollos.
+    - Consideraciones para inversores extranjeros.
 
-Demanda Sostenida: La creciente población y la llegada de nuevas empresas garantizan una demanda constante de bienes raíces en la zona.
+    9. Proyecciones futuras:
+    - Expansión continuada hacia nuevas áreas de desarrollo.
+    - Posible diversificación hacia proyectos más asequibles.
+    - Mayor énfasis en desarrollos sostenibles y comunidades planificadas.
 
+    10. Recomendaciones para inversores:
+    - Realizar un due diligence exhaustivo antes de invertir.
+    - Considerar el potencial de áreas emergentes dentro de Samborondón.
+    - Mantenerse informado sobre cambios en regulaciones y tendencias del mercado.
+    - Trabajar con profesionales inmobiliarios y legales con experiencia local.
 
-Desafíos a Considerar
-
-A pesar de las oportunidades, el mercado inmobiliario de Samborondón enfrenta desafíos significativos:
-
-Sobreoferta: Estudios recientes indican que el mercado inmobiliario en la vía Samborondón-Salitre está sobre ofertado, es decir, la oferta es mayor a la demanda. 
-
-Infraestructura y Movilidad: El rápido crecimiento ha generado congestión vehicular y presión sobre la infraestructura existente, resaltando la necesidad de inversiones en mejoras viales y servicios públicos.
-
-Accesibilidad Financiera: Aunque la zona es atractiva, los altos costos pueden limitar el acceso a ciertos segmentos de la población, especialmente en ausencia de opciones de financiamiento accesibles.
-
-
-Perspectivas Futuras
-
-El futuro del mercado inmobiliario en Samborondón dependerá de la capacidad de equilibrar el desarrollo con la sostenibilidad. Es esencial que las autoridades locales, desarrolladores e inversores trabajen en conjunto para:
-
-Planificación Urbana Sostenible: Implementar estrategias que promuevan un crecimiento ordenado y respetuoso con el medio ambiente.
-
-Mejora de Infraestructuras: Invertir en proyectos que alivien la congestión y mejoren la calidad de vida de los residentes.
-
-Diversificación de la Oferta: Desarrollar proyectos que atiendan a diferentes segmentos del mercado, incluyendo opciones más asequibles.
-
-
-En conclusión, Samborondón se presenta como una zona de alto potencial en el mercado inmobiliario ecuatoriano. Las oportunidades son numerosas, pero es crucial abordar los desafíos de manera proactiva para asegurar un desarrollo sostenible y beneficioso para todos los actores involucrados.
+    Conclusión:
+    El mercado inmobiliario de Samborondón ofrece oportunidades atractivas para inversores y desarrolladores, respaldadas por una fuerte demanda y un entorno económico favorable. Sin embargo, es crucial abordar los desafíos de crecimiento sostenible y planificación urbana para mantener el atractivo a largo plazo de la zona. Con una estrategia cuidadosa y un enfoque en la calidad y la innovación, Samborondón tiene el potencial de continuar siendo un punto focal del desarrollo inmobiliario en Ecuador en los próximos años.
     `
   },
   {
     id: 4,
     title: "Innovaciones sostenibles en el desarrollo inmobiliario de Quito",
     description: "Explora cómo la capital ecuatoriana está liderando el camino en construcción verde y desarrollo urbano sostenible.",
-    image: "/innovaciones-sostenibles-desarrollo-inmobiliario-quito.jpg",
+    image: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&q=80&w=1964&ixlib=rb-4.0.3",
     slug: "innovaciones-sostenibles-desarrollo-inmobiliario-quito",
     category: "sostenibilidad",
     subtitle: "Quito: Un Modelo de Desarrollo Inmobiliario Sostenible",
@@ -242,7 +273,7 @@ En conclusión, Samborondón se presenta como una zona de alto potencial en el m
     id: 5,
     title: "La Revolución PropTech: Transformando el Sector Inmobiliario",
     description: "Descubre cómo la tecnología está redefiniendo la industria de bienes raíces en América Latina y el mundo, ofreciendo nuevas oportunidades y desafíos para inversores y profesionales del sector.",
-    image: "/revolucion-proptech-latinoamerica.jpg",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072&ixlib=rb-4.0.3",
     slug: "revolucion-proptech-latinoamerica",
     category: "tecnologia",
     subtitle: "PropTech: La Transformación Digital del Sector Inmobiliario",
@@ -333,7 +364,7 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     id: 6,
     title: "¿Por qué elegir Orlando para invertir en bienes raíces?",
     description: "Descubre las razones que hacen de Orlando un destino atractivo para la inversión inmobiliaria en 2025.",
-    image: "/por-que-elegir-orlando-para-invertir.jpg",
+    image: "https://images.unsplash.com/photo-1575517111478-7f6afd0973db?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "por-que-elegir-orlando-para-invertir",
     category: "inversion",
     subtitle: "Orlando: Una Inversión Inteligente en Bienes Raíces",
@@ -395,7 +426,7 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     id: 7,
     title: "Chiriquí, Panamá: El mejor destino para 2025 según Lonely Planet",
     description: "Explora por qué la provincia de Chiriquí ha sido destacada como uno de los mejores destinos para visitar en 2025, y lo que esto significa para el mercado inmobiliario local.",
-    image: "/chiriqui-panama-mejor-destino-2025.jpg",
+    image: "https://images.unsplash.com/photo-1589994160839-163cd867cfe8?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "chiriqui-panama-mejor-destino-2025",
     category: "tendencias",
     subtitle: "Chiriquí: Un Paraíso Emergente en Panamá",
@@ -483,7 +514,7 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     id: 8,
     title: "Curiosidades del mercado inmobiliario en Miami: Un vistazo al 2025",
     description: "Descubre los datos más interesantes y las tendencias emergentes que están dando forma al dinámico mercado de bienes raíces de Miami.",
-    image: "/curiosidades-mercado-inmobiliario-miami.jpg",
+    image: "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "curiosidades-mercado-inmobiliario-miami",
     category: "mercado",
     subtitle: "Miami: Innovación y Tendencias en el Mercado Inmobiliario",
@@ -550,12 +581,12 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     - Proyectos que generan su propia energía y reciclan agua
     - Jardines verticales que producen alimentos para residentes
 
-    15. El fenómeno de las "casas trofeo":
+    15. El fenómeno de las "casas trofeo":<merged_code_continued>
     - Propiedades únicas diseñadas más como obras de arte que como viviendas
     - Incluyen características como acuarios gigantes o pistas de bolos privadas
 
     16. Realidad virtual en ventas inmobiliarias:
-    - Tours virtuales hiper-realistas de propiedades aúnno construidas
+    - Tours virtuales hiper-realistas de propiedades aún no construidas
     - Compradores internacionales cerrando tratos sin visitar físicamente
 
     17. La influencia del cambio climático:
@@ -577,13 +608,12 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
 
     Conclusión:
     El mercado inmobiliario de Miami en 2025 es un fascinante crisol de innovación tecnológica, diseño vanguardista y adaptación a los desafíos globales. Desde rascacielos giratorios hasta micro-unidades ultraeficientes, la ciudad continúa reinventándose y atrayendo a inversores y residentes de todo el mundo. A medida que Miami navega por los desafíos del cambio climático y las cambiantes dinámicas demográficas, su mercado inmobiliario demuestra una notable resiliencia y capacidad de adaptación. Para inversores y desarrolladores, Miami sigue siendo un mercado lleno de oportunidades únicas y emocionantes perspectivas de crecimiento.
-    `
   },
   {
     id: 9,
     title: "El Parque Histórico de Cuenca: Joya patrimonial y nuevo foco de desarrollo inmobiliario",
     description: "Descubre la rica historia del Parque Histórico de Cuenca y elemocionante proyecto inmobiliario que está surgiendo en sus alrededores.",
-    image: "/parque-historico-cuenca-desarrollo-inmobiliario.jpg",
+    image: "https://images.unsplash.com/photo-1566138686123-f8910b21e696?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "parque-historico-cuenca-desarrollo-inmobiliario",
     category: "ecuador",
     subtitle: "Cuenca: Historia y Modernidad en el Corazón del Parque Histórico",
@@ -675,13 +705,12 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     El Parque Histórico de Cuenca, con su rica historia y belleza atemporal, continúa siendo el corazón palpitante de esta ciudad patrimonio. El nuevo desarrollo inmobiliario en sus alrededores no solo ofrece una oportunidad única de vivir en un entorno de incalculable valor histórico, sino que también representa un paso hacia el futuro, demostrando cómo la modernidad y la tradición pueden coexistir en armonía.
 
     Para aquellos que buscan sumergirse en la rica cultura ecuatoriana, disfrutar de una calidad de vida excepcional y ser parte de un legado histórico vivo, este nuevo proyecto cerca del Parque Histórico de Cuenca presenta una oportunidad inigualable. Con suites disponibles desde 75.000 dólares, es una invitación a no solo invertir en una propiedad, sino en un estilo de vida único que fusiona lo mejor del pasado y el presente de Cuenca.
-    `
   },
   {
     id: 10,
     title: "Boquete Pino Alto Country Club: Lujo y Naturaleza en Panamá",
     description: "Descubre el exclusivo desarrollo residencial en las montañas de Boquete, que combina lujo, golf y una impresionante belleza natural.",
-    image: "/boquete-pino-alto-country-club.jpg",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3",
     slug: "boquete-pino-alto-country-club",
     category: "panama",
     subtitle: "Un Paraíso de Lujo en las Montañas de Panamá",
@@ -737,262 +766,5 @@ En última instancia, el PropTech tiene el potencial de democratizar el acceso a
     - Festivales culturales y eventos durante todo el año
 
     Boquete Pino Alto Country Club representa una oportunidad única para aquellos que buscan una vida de lujo en armonía con la naturaleza. Ya sea como residencia permanente, segunda casa o inversión, este desarrollo ofrece una combinación inigualable de comodidades modernas y belleza natural en uno de los destinos más codiciados de Panamá.
-  `
-  },
-  {
-  id: 11,
-    title: "José Solines Aguayo: Construyendo Sueños y Transformando Ecuador",
-    description: "Descubre la historia de uno de los constructores más emblemáticos e influyentes de Ecuador y su impacto en el desarrollo de Samborondón y Vía a la Costa.",
-    image: "/portada-jose-solines.jpg",
-    slug: "jose-solines-aguayo-construyendo-suenos",
-    category: "ecuador",
-    subtitle: "Un legado de innovación y calidad en el sector inmobiliario",
-    importantFact: "José Solines Aguayo ha desarrollado proyectos emblemáticos en Samborondón y Vía a la Costa, posicionándose como uno de los principales impulsores del crecimiento urbano en Ecuador.",
-    fullContent: `
-Desde hace años, **Janneth Aguirre Bienes Raíces** ha tenido el honor de comercializar los proyectos inmobiliarios de José Solines Aguayo, uno de los constructores más emblemáticos e influyentes de Ecuador. Su visión innovadora y su incansable compromiso con la calidad han sido clave para el desarrollo de Samborondón y Vía a la Costa.
-
-**Un líder que transforma ciudades**
-
-Con más de 14 años dentro de su desarrolladora inmobiliaria, he sido testigo de su inigualable capacidad para diseñar y ejecutar proyectos que no solo embellecen la ciudad, sino que también mejoran la calidad de vida de sus habitantes. **José Solines no solo construye edificaciones; crea espacios sostenibles, modernos y funcionales. Su dedicación y pasión por su trabajo son palpables en cada obra que emprende.**
-
-[IMAGE:/jose-solines-articulo-janneth-aguirre.jpg]
-
-**Construyendo con propósito**
-
-**"Siempre voy a invertir en Ecuador"**, afirma José Solines con convicción. Su compromiso con el país y su gente es innegable. A lo largo de su trayectoria, ha edificado casas, condominios y plazas comerciales, proyectos que reflejan su esencia: soluciones urbanas de calidad, diseño innovador y alto valor agregado.
-
-[IMAGE:/san-bernardo-jose-solines-janneth-aguirre.jpg]
-
-**Una vida de esfuerzo y dedicación**
-
-Nacido en Guayaquil, Solines recuerda con nostalgia su infancia en Urdesa y el barrio del Astillero, cuando la ciudad tenía un ritmo de vida más pausado. Su espíritu trabajador se forjó desde temprana edad. A los 7 años ya ayudaba a su padre en la venta de productos alimenticios, recorriendo cada rincón de la ciudad en su bicicleta.
-
-[IMAGE:/deira-construccion-jose-solines-janneth-aguirre.jpg]
-
-Ese esfuerzo inquebrantable lo llevó a convertirse en el hombre detrás de **Solines Soluciones**, una firma que ha dejado huella en el sector inmobiliario. Con cada proyecto, reafirma su misión de construir más que edificios: construir sueños y transformar vidas.
-
-[IMAGE:https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3]
-
-**Un futuro de grandes proyectos**
-
-Como parte de su equipo, me siento orgullosa de compartir su visión y contribuir a que más personas encuentren su hogar ideal o la inversión perfecta. **El futuro de la construcción en Ecuador está en buenas manos con líderes como José Solines Aguayo.**
-
-[IMAGE:/jose-solines-janneth-aguirre.jpg]
-    `,
-  },
-  {
-  id: 12,
-    title: "La Domotización en Bienes Raíces: Transformando Espacios para el Futuro",
-    description: "La domotización revoluciona el mercado inmobiliario, mejorando eficiencia, seguridad y confort. Descubre su impacto y las oportunidades que ofrece.",
-    image: "/juan-solano-aguirre.jpg",
-    slug: "la-domotizacion-en-bienes-raices-por-juan-carlos-solano-aguirre",
-    category: "tecnología",
-    subtitle: "Cómo la tecnología redefine el confort y la eficiencia en el sector inmobiliario",
-    importantFact: "Según un estudio de Statista, se estima que el mercado global de hogares inteligentes alcanzará los $231 mil millones para 2028, impulsado por la creciente demanda de eficiencia energética, seguridad y automatización en bienes raíces.",
-    fullContent: `
-En el mundo inmobiliario actual, la domotización ha pasado de ser un lujo a convertirse en un elemento clave para mejorar la eficiencia, la seguridad y el confort en hogares y propiedades comerciales. La integración de tecnología avanzada en los inmuebles está transformando la forma en que vivimos y trabajamos, a la vez que redefine las oportunidades de inversión en bienes raíces.
-
-El **Ing. Juan Carlos Solano Aguirre**., experto en domótica y automatización, comparte su visión sobre cómo estas innovaciones están impactando el sector y los beneficios que aportan a propietarios e inversionistas.
-
-
-[IMAGE:/ingeniero-juan-solano-aguirre.jpg]
-
-**¿Qué es la domótica y cómo mejora los espacios?**
-
-Si buscamos el término **domótica**, encontramos que se trata de un conjunto de dispositivos inteligentes diseñados para brindar seguridad, confort y ahorro energético en viviendas y establecimientos comerciales.
-
-**En términos prácticos, la domótica permite:**
-
-✓ Gestión eficiente de la energía.
-
-✓ Monitoreo de dispositivos y actividades en tiempo real.
-
-✓ Reducción del consumo eléctrico y costos operativos.
-
-✓ Mayor comodidad para los residentes mediante la automatización de tareas.
-
-**Un estudio revelador sobre el impacto de la domotización**
-
-Un estudio realizado en 2023 implementó un sistema de control domótico en un departamento de tres dormitorios, dos baños, comedor y cocina, el cual inicialmente no contaba con dispositivos inteligentes.
-
-El sistema permitió:
-
-• **Monitorear el consumo eléctrico general.**
-
-• **Automatizar la calefacción en invierno y el aire acondicionado en verano.**
-
-• **Regular el uso eficiente de la iluminación y la apertura/cierre de persianas.**
-
-**Resultados tras un año de implementación:**
-
-📉 **26%** de ahorro en aire acondicionado.
-
-📉 **26%** de ahorro en calefacción.
-
-📉 **10%** de ahorro en iluminación.
-
-📉 **14%** de ahorro en electrodomésticos y otros dispositivos.
-
-Estos números demuestran que la domótica no solo mejora el confort del hogar, sino que también representa un ahorro económico significativo a lo largo del año.
-
-[IMAGE:/hogar-inteligente-juan-carlos-solano-aguirre.jpg]
-
-**Domótica en edificios y centros comerciales**
-
-El impacto de la domótica no se limita solo a los hogares. En edificios comerciales, oficinas y plazas, los sistemas automatizados permiten una gestión eficiente del consumo de energía en:
-
-🔹 **Iluminación.**
-
-🔹 **Ascensores.**
-
-🔹 **Sistemas de climatización.**
-
-Si bien la implementación inicial en grandes infraestructuras puede representar una inversión considerable, a largo plazo garantiza un ahorro energético significativo y un impacto positivo en los costos operativos.
-
-Además, con las regulaciones ambientales y la creciente exigencia por la sostenibilidad, es probable que en el futuro la domotización sea obligatoria en muchos establecimientos comerciales.
-
-[IMAGE:/edificio-inteligente-juan-carlos-solano-aguirre.jpg]
-
-**El futuro de la domótica en bienes raíces**
-
-La tecnología domótica sigue evolucionando, volviéndose más accesible y compacta, lo que la hace cada vez más atractiva para todo tipo de consumidores, desde familias hasta grandes desarrolladores inmobiliarios.
-
-Para el **Ing. Juan Carlos Solano Aguirre**, la clave está en seguir impulsando el desarrollo de sistemas inteligentes que no solo faciliten la vida cotidiana, sino que también contribuyan al cuidado del medio ambiente y la eficiencia energética.
-
-En definitiva, la domotización ha dejado de ser una tendencia futurista para convertirse en una realidad indispensable en el sector inmobiliario.
-    `,
-  },
-  {
-   id: 13,
-    title: "Panamá: Un Destino Estratégico para la Inversión Inmobiliaria",
-    description: "Panamá se consolida como un destino clave para la inversión inmobiliaria, gracias a su estabilidad económica, ubicación estratégica y crecimiento en infraestructura. Descubre las oportunidades que ofrece este mercado dinámico.",
-    image: "/inversiones-panama-inmobiliaria.jpg",
-    slug: "alianza-sotillo-company-janneth-aguirre-inversiones-panama",
-    category: "Panamá",
-    subtitle: "Una alianza que abre nuevas oportunidades para los inversionistas ecuatorianos",
-    importantFact: "Se estima que más de 140 compañías multinacionales han establecido su sede en Panamá en los últimos años, lo que ha incrementado la demanda de propiedades comerciales y residenciales en el país.",
-    fullContent: `
-La firma panameña **SOTILLO & COMPANY Commercial Real Estate**, especializada en bienes raíces comerciales y residenciales desde 2007, ha firmado un acuerdo estratégico con **JANNETH AGUIRRE BIENES RAÍCES**. Esta alianza permitirá a los inversionistas ecuatorianos acceder a las mejores oportunidades del mercado inmobiliario panameño con asesoría experta y acompañamiento en cada etapa del proceso.
-
-Panamá se ha consolidado como un destino atractivo para la inversión inmobiliaria gracias a su ubicación estratégica, economía estable y alto crecimiento en infraestructura. Con este acuerdo, se abre la posibilidad de acceder a propiedades de alto valor en uno de los mercados más dinámicos de la región.
-
-
-[IMAGE:/sotillo-company-alianza-janneth-aguirre.jpg]
-
-**¿Por qué invertir en Panamá?**
-
-Panamá es un país con un desarrollo sostenido y un ambiente propicio para la inversión extranjera. Su crecimiento económico y su infraestructura de primer nivel lo han convertido en un hub comercial, logístico y financiero clave en Latinoamérica.
-
-**Factores clave que hacen de Panamá un destino ideal para la inversión:**
-
-✓ **Ubicación estratégica:** Conectividad global a través del Canal de Panamá y sus puertos en el Pacífico y el Atlántico, lo que facilita el comercio internacional.
-
-✓ **Estabilidad política y económica:** Crecimiento sostenido, baja inflación y un sistema financiero sólido respaldado por bancos nacionales e internacionales.
-
-✓ **Expansión en infraestructura:** Panamá ha realizado inversiones multimillonarias en carreteras, aeropuertos, transporte y telecomunicaciones.
-
-✓ **Presencia de multinacionales:** Empresas como **Huawei**, **Nestlé**, **IBM**, **Procter & Gamble**, **HSBC**, **Pepsico**, **Caterpillar** y **Adidas** han establecido operaciones en el país, lo que impulsa la demanda inmobiliaria.
-
-✓ **Facilidades para inversionistas extranjeros:** Existen leyes y regulaciones que favorecen la inversión foránea en bienes raíces, como la Ley de Sedes de Empresas Multinacionales (SEM).
-
-[IMAGE:/porque-invertir-en-panama.jpg]
-
-**Principales oportunidades de inversión**
-
-**SOTILLO & COMPANY Commercial Real Estate** ofrece una amplia cartera de propiedades, adaptadas a diferentes tipos de inversionistas:
-
-🏢 **Espacios comerciales y logísticos:** Bodegas en Zonas Francas y oficinas en centros estratégicos con alta demanda.
-
-🏡 **Residencias exclusivas:** Casas y apartamentos en los barrios más prestigiosos de Ciudad de Panamá.
-
-🏖️ **Propiedades de playa y montaña:** Lugares turísticos con gran potencial de valorización y retorno de inversión.
-
-📈 **Inversiones rentables:** Propiedades generando ingresos que pueden integrarse a carteras de inversión diversificadas.
-
-🌱 **Proyectos de desarrollo:** Terrenos estratégicos para futuros desarrollos inmobiliarios.
-
-El auge del sector inmobiliario en Panamá se debe al crecimiento de la demanda por espacios comerciales, logísticos y residenciales. Tanto el mercado corporativo como el habitacional han experimentado una expansión significativa, impulsada por la llegada de empresas extranjeras y la creciente población de expatriados.
-
-[IMAGE:/sotillo-company-real-state.jpg]
-
-**Facilidades de financiamiento para inversionistas ecuatorianos**
-
-Una de las ventajas de invertir en Panamá es la facilidad para acceder a financiamiento. Gracias a nuestra alianza, conectamos a los inversionistas ecuatorianos con **bancos de prestigio como Banco Pichincha, Banco del Pacífico, BAC, Banistmo, BICSA y Banco General**, facilitando el acceso a créditos hipotecarios y financiamiento empresarial en condiciones favorables.
-
-Además, ofrecemos asesoría en la gestión de trámites y documentación, asegurando que el proceso de compra o alquiler de propiedades sea ágil y seguro.
-
-[IMAGE:/banco-pinchincha.jpg]
-
-**El impacto del Canal de Panamá en la economía y el sector inmobiliario**
-
-El Canal de Panamá es una de las principales razones por las que el país se ha convertido en un destino atractivo para la inversión. Este paso interoceánico mueve más del **5% del comercio marítimo mundial**, lo que genera un flujo constante de inversión en infraestructura y logística.
-
-[IMAGE:/canal-panama-comercio-maritimo-mundial.jpg]
-
-Además, Panamá cuenta con un sistema bancario sólido, incentivos fiscales y una plataforma comercial estable, factores que han impulsado la llegada de grandes compañías internacionales. La combinación de estos elementos crea un entorno ideal para la inversión inmobiliaria, con una alta demanda de propiedades en sectores clave.
-
-**Conclusión: Una alianza para el crecimiento de los inversionistas ecuatoriano**
-
-La alianza entre **SOTILLO & COMPANY Commercial Real Estate y JANNETH AGUIRRE BIENES RAÍCES** representa una oportunidad única para los inversionistas ecuatorianos que desean diversificar su portafolio en un mercado estable y en crecimiento.
-
-[IMAGE:/equipo-sotillo-company-janneth-aguirre-biene-raices.jpg]
-
-Con un equipo de expertos en bienes raíces, financiamiento y gestión inmobiliaria, esta colaboración garantiza asesoramiento integral y acceso a las mejores oportunidades en Panamá. Si buscas un destino seguro y rentable para tu próxima inversión, Panamá es la respuesta. 
-Toca el botón explorar el mercado inmobiliario para más información.
-    `,
-  },
-  {
-   id: 14,
-   title: "Tendencias del Mercado Inmobiliario en Washington, D.C. a Inicios de 2025",
-   description: "El mercado inmobiliario de Washington, D.C. inicia el 2025 con un crecimiento en el segmento residencial, impulsado por el auge de propiedades de lujo tras el regreso de Donald Trump a la Casa Blanca. Sin embargo, el sector de oficinas enfrenta desafíos debido a los recortes en la fuerza laboral federal y la reducción del gasto gubernamental. En este análisis, exploramos las tendencias clave, las variaciones en los precios según el vecindario y el impacto de los cambios políticos en la inversión inmobiliaria.",
-   image: "/tendencias-mercado-inmobiliario-washington-2025.jpg",
-   slug: "mercado-inmobiliario-washington-2025",
-   category: "Estados Unidos",
-   subtitle: "Un mercado en transformación: Crecimiento en el sector residencial y desafíos en el sector corporativo",
-   importantFact: "📢 El mercado inmobiliario de lujo en Washington, D.C. ha visto un crecimiento del 20% en transacciones multimillonarias en los últimos tres meses, impulsado por la reubicación de figuras clave del nuevo gobierno y grandes inversionistas",
-   fullContent: `
-El mercado inmobiliario de Washington, D.C. comienza 2025 con una combinación de crecimiento y desafíos en diferentes sectores, impulsado por cambios políticos y económicos que han moldeado la demanda tanto en el ámbito residencial como en el corporativo.
-
-**Mercado Residencial: Crecimiento con Enfoque en el Lujo**
-
-•📈 **Precios en ascenso:** En diciembre de 2024, el precio medio de las viviendas en Washington, D.C. alcanzó los **$629,000**, reflejando un aumento del -5,2%- en comparación con el año anterior.
-
-•🏡 **Actividad del mercado:** Las viviendas en la zona suelen recibir **dos ofertas** en promedio y venderse en **56 días**, lo que indica un mercado **moderadamente competitivo**.
-
-•💰 **Boom del lujo:** Con el regreso de **Donald Trump** a la Casa Blanca, el mercado inmobiliario de lujo ha experimentado un **aumento en la demanda**. Figuras políticas influyentes, empresarios y aliados de la administración han impulsado la compra de **propiedades multimillonarias** en la capital y sus alrededores.
-
-[IMAGE:/propiedades-lujo-washington.jpg]
-
-**Mercado de Oficinas: Desafíos por Reducción Gubernamental**
-
-🏢 **Recortes en el sector federal**: La administración Trump ha anunciado planes para **reducir la fuerza laboral gubernamental y el gasto público**, lo que podría generar una menor demanda de espacios de oficina en D.C.
-
-🔍 **Impacto en contratistas y ONGs**: Organizaciones que dependen del gobierno podrían ver afectadas sus necesidades de arrendamiento de oficinas, en un contexto donde, a pesar del **crecimiento en 2024**, las perspectivas de 2025 son **inciertas**.
-
-[IMAGE:/mercado-oficinas-washington.jpg]
-
-**Diferencias en los Vecindarios: Un Mercado Diversificado**
-
-📊 **Desigualdad en los precios:** La oferta inmobiliaria varía notablemente según el vecindario. En noviembre de 2024:
-
-      🔹 **Petworth:** Precio medio de venta de **$750,000**.
-
-      🔹 **Congress Heights:** Precio medio de **$370,000**.
-
-Este contraste resalta la **importancia de analizar factores específicos de cada área** antes de invertir.
-
-[IMAGE:/precios-vecindarios-washington.jpg]
-
-**Perspectiva Empresarial: Mario Rubio y el Futuro del Mercado**
-
-Mario Rubio, **fundador y presidente de American Global Group**, destaca que **la estabilidad política y económica de Estados Unidos sigue siendo un factor clave para la inversión inmobiliaria**, atrayendo tanto a compradores nacionales como internacionales. Según Rubio, **la recuperación del sector comercial dependerá de la evolución de las políticas gubernamentales y la capacidad de adaptación de las empresas a nuevas dinámicas de trabajo y financiamiento**.
-
-[IMAGE:/mario-rubio-empresa-inmobiliaria.jpg]
-
-**Conclusión**
-El mercado inmobiliario de **Washington, D.C.** se encuentra en una etapa de **crecimiento sostenido en el sector residencial**, con un especial impulso en las **propiedades de lujo**. Sin embargo, el **mercado de oficinas enfrenta incertidumbre**, con la posible reducción del espacio federal y su impacto en la demanda.
-Para inversionistas y compradores, la clave en 2025 será **evaluar cuidadosamente las oportunidades según cada sector y vecindario**, así como mantenerse atentos a los cambios en las políticas económicas y gubernamentales que podrían influir en el panorama inmobiliario.
-`,
-    }
-  ]
-
+  }
+];
