@@ -1,3 +1,15 @@
+interface Article {
+  id: number
+  slug: string
+  title: string
+  description: string
+  image: string
+  fullContent: string
+  category: string
+  subtitle?: string
+  importantFact?: string
+}
+
 export const BRAND_COLORS = {
   primary: "#FF0000",
   secondary: "#808080",
@@ -22,8 +34,6 @@ export const CATEGORIES = [
   { name: "Negocios", slug: "negocios" },
 ]
 
-export const ARTICLES = [
-  // You can add some sample articles here if needed
-  // For now, we'll leave it as an empty array
+export const ARTICLES: Article[] = [
+  
 ]
-
