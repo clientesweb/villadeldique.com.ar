@@ -1,82 +1,44 @@
-import Head from 'next/head'
+import Head from "next/head"
 
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "Janneth Aguirre Bienes Raíces",
-    "image": "https://jannethaguirre.online/logo.png",
-    "url": "https://jannethaguirre.online",
-    "telephone": "+593987167782",
-    "address": {
+    "@type": "LocalBusiness",
+    name: "Villa del Dique Digital",
+    image: "https://villadeldique.com.ar/logo-villa-del-dique.png",
+    url: "https://villadeldique.com.ar",
+    telephone: "+54 9 3546 123456",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Principal 123",
-      "addressLocality": "Guayaquil",
-      "addressRegion": "Guayas",
-      "postalCode": "090150",
-      "addressCountry": "EC"
+      streetAddress: "Calle Principal 123",
+      addressLocality: "Villa del Dique",
+      addressRegion: "Córdoba",
+      postalCode: "5862",
+      addressCountry: "AR",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": -2.1894128,
-      "longitude": -79.8890662
+      latitude: -32.1833,
+      longitude: -64.6833,
     },
-    "openingHoursSpecification": {
+    openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
     },
-    "sameAs": [
-      "https://www.facebook.com/@jannethaguirrebienesraices/?hr=1",
-      "https://www.instagram.com/janneth_aguirrem/",
-      "https://vm.tiktok.com/ZMhnEwCHp/",
-      "https://www.youtube.com/@jannethaguirrebienesraices5728"
+    sameAs: [
+      "https://www.facebook.com/villadeldiquedigital",
+      "https://www.instagram.com/villadeldiquedigital",
+      "https://twitter.com/villadeldiquedigital",
     ],
-    "areaServed": ["Ecuador", "Panamá", "Estados Unidos"],
-    "priceRange": "$$$$",
-    "description": "Janneth Aguirre Bienes Raíces es líder en propiedades de lujo e inversiones inmobiliarias internacionales en Ecuador, Panamá y Estados Unidos.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Servicios Inmobiliarios",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Venta de Propiedades de Lujo"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Asesoría en Inversiones Inmobiliarias Internacionales"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Gestión de Propiedades"
-          }
-        }
-      ]
-    }
+    description:
+      "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
   }
 
   return (
     <Head>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </Head>
   )
 }
