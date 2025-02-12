@@ -1,19 +1,22 @@
-'use client'
+"use client"
 
-import { Facebook, Instagram, Twitter, Youtube, TwitterIcon as TikTok, Mail, Phone, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { SOCIAL_LINKS, CONTACT_INFO, CATEGORIES } from '@/lib/constants'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { useState } from 'react'
+import { Facebook, Instagram, Twitter, Youtube, TwitterIcon as TikTok, Mail, Phone, ArrowRight } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { SOCIAL_LINKS, CONTACT_INFO, CATEGORIES } from "@/lib/constants"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { useState } from "react"
 
 export default function Footer() {
-  const [phone, setPhone] = useState('')
+  const [phone, setPhone] = useState("")
 
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    window.open(`https://wa.me/593987167782?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`, '_blank')
+    window.open(
+      `https://wa.me/593987167782?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`,
+      "_blank",
+    )
   }
 
   return (
@@ -21,30 +24,49 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center md:items-start">
-            <Image
-              src="/logooficial.png"
-              alt="Janneth Aguirre Magazine"
-              width={150}
-              height={60}
-              className="mb-4"
-            />
+            <Image src="/logooficial.png" alt="Janneth Aguirre Magazine" width={150} height={60} className="mb-4" />
             <p className="text-sm max-w-xs text-center md:text-left">
               Tu revista líder en bienes raíces internacionales
             </p>
             <div className="flex space-x-4 mt-4">
-              <Link href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">
+              <Link
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF0000] transition-colors"
+              >
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">
+              <Link
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF0000] transition-colors"
+              >
                 <Instagram className="h-6 w-6" />
               </Link>
-              <Link href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">
+              <Link
+                href={SOCIAL_LINKS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF0000] transition-colors"
+              >
                 <Twitter className="h-6 w-6" />
               </Link>
-              <Link href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">
+              <Link
+                href={SOCIAL_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF0000] transition-colors"
+              >
                 <Youtube className="h-6 w-6" />
               </Link>
-              <Link href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-[#FF0000] transition-colors">
+              <Link
+                href={SOCIAL_LINKS.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FF0000] transition-colors"
+              >
                 <TikTok className="h-6 w-6" />
               </Link>
             </div>
@@ -66,9 +88,21 @@ export default function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-[#FF0000]">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              <li><Link href="/sobre-nosotros" className="hover:text-[#FF0000] transition-colors">Sobre Nosotros</Link></li>
-              <li><Link href="/contacto" className="hover:text-[#FF0000] transition-colors">Contacto</Link></li>
-              <li><Link href="/politica-privacidad" className="hover:text-[#FF0000] transition-colors">Política de Privacidad</Link></li>
+              <li>
+                <Link href="/sobre-nosotros" className="hover:text-[#FF0000] transition-colors">
+                  Sobre Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="hover:text-[#FF0000] transition-colors">
+                  Contacto
+                </Link>
+              </li>
+              <li>
+                <Link href="/politica-privacidad" className="hover:text-[#FF0000] transition-colors">
+                  Política de Privacidad
+                </Link>
+              </li>
               <li>
                 <Link
                   href="https://jannethaguirre.com/"
