@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { X } from "lucide-react"
+import { X, MessageCircle } from "lucide-react"
 
 export default function WhatsAppButton() {
   const [showNotification, setShowNotification] = useState(false)
@@ -42,18 +42,12 @@ export default function WhatsAppButton() {
         href={`https://wa.me/593987167782`}
         target="_blank"
         rel="noopener noreferrer"
-        className="block"
+        className="flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300"
         variants={buttonVariants}
         whileHover="hover"
         whileTap="tap"
       >
-        <Image
-          src="/logooficial.png"
-          alt="Janneth Aguirre"
-          width={60}
-          height={60}
-          className="rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-shadow duration-300"
-        />
+        <Image src="/whatsapp-logo.png" alt="WhatsApp" width={32} height={32} className="filter brightness-0 invert" />
       </motion.a>
       <AnimatePresence>
         {showNotification && !notificationClosed && (
@@ -68,8 +62,13 @@ export default function WhatsAppButton() {
             <button onClick={handleClose} className="absolute top-1 right-1 text-gray-500 hover:text-gray-700">
               <X size={16} />
             </button>
-            <p className="text-sm mb-2">¿Necesitas ayuda con bienes raíces?</p>
-            <p className="text-xs text-gray-600">Contáctanos para obtener asesoría personalizada.</p>
+            <div className="flex items-start">
+              <MessageCircle className="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-1" />
+              <div>
+                <p className="text-sm font-semibold mb-1">¿Necesitas ayuda?</p>
+                <p className="text-xs text-gray-600">Contáctanos por WhatsApp para obtener asistencia inmediata.</p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
