@@ -1,62 +1,71 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const content = {
-  title: "JANNETH AGUIRRE",
-  subtitle: "Edición Especial 2025: El Futuro del Mercado Inmobiliario",
-  description: "Ecuador • Panamá • Estados Unidos",
+  title: "Villa Del Dique",
+  subtitle: "Digital",
+  description: "Todo lo que necesitas saber sobre nuestra comunidad: historia, gastronomía, turismo y más.",
   cta: {
-    text: "Leer Edición Digital",
-    link: "#",
+    text: "Leer artículos",
+    link: "#articles",
   },
 }
 
 export default function MagazineCover() {
-  //const [currentImage, setCurrentImage] = useState(0)
-
-  //useEffect(() => {
-  //  const timer = setInterval(() => {
-  //    setCurrentImage((prevImage) => (prevImage + 1) % slides.length)
-  //  }, 5000)
-  //  return () => clearInterval(timer)
-  //}, [])
-
   return (
-    <div className="relative h-screen flex items-center justify-center overflow-hidden">
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-        <source src="/hero-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10" />
-      <div className="relative z-20 text-white text-center px-4 max-w-4xl flex flex-col h-full justify-between py-12">
-        <motion.h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight animate-fade-in-up">
+    <div className="relative h-screen w-full overflow-hidden">
+      <Image
+        src="/images/villa-del-dique-hero.jpg" // Asegúrate de tener esta imagen en tu proyecto
+        alt="Villa Del Dique"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        priority
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           {content.title}
-          <span className="block text-[#FF0000] animate-pulse text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-2">
-            MAGAZINE
-          </span>
         </motion.h1>
-        <div>
-          <motion.p className="text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6 animate-fade-in-up animation-delay-300 font-serif italic">
-            {content.subtitle}
-          </motion.p>
-          <motion.p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 animate-fade-in-up animation-delay-300">
-            {content.description}
-          </motion.p>
-          <motion.div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600">
-            <Button
-              size="lg"
-              className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full transition-transform hover:scale-105"
-              onClick={() => window.open(content.cta.link, "_blank")}
-            >
-              {content.cta.text}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </motion.div>
-        </div>
+        <motion.span
+          className="text-3xl md:text-5xl font-bold text-[#FF0000] mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {content.subtitle}
+        </motion.span>
+        <motion.p
+          className="text-xl md:text-2xl mb-8 max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          {content.description}
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <Button
+            size="lg"
+            className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-white text-lg px-8 py-4 rounded-full transition-transform hover:scale-105"
+            onClick={() => document.querySelector(content.cta.link)?.scrollIntoView({ behavior: "smooth" })}
+          >
+            {content.cta.text}
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </motion.div>
       </div>
     </div>
   )
