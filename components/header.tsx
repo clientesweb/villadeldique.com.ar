@@ -53,11 +53,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logooficial.png"
-              alt="Janneth Aguirre Magazine"
+              src="/logo-villa-del-dique.png"
+              alt="Villa del Dique Digital"
               width={150}
               height={60}
-              className="h-12 md:h-16 w-auto"
+              className="h-8 md:h-12 w-auto"
             />
           </Link>
 
@@ -66,7 +66,7 @@ export default function Header() {
             {CATEGORIES.map((category) => (
               <Link
                 key={category.slug}
-                href={`/categoria/${category.slug}`}
+                href={`/${category.slug}`}
                 className="text-sm lg:text-base text-gray-700 hover:text-[#FF0000] font-medium transition-colors"
               >
                 {category.name}
@@ -94,11 +94,11 @@ export default function Header() {
                 <div className="flex justify-between items-center p-4 border-b">
                   <Link href="/" onClick={() => setIsOpen(false)}>
                     <Image
-                      src="/logooficial.png"
-                      alt="Janneth Aguirre Magazine"
+                      src="/logo-villa-del-dique.png"
+                      alt="Villa del Dique Digital"
                       width={150}
                       height={60}
-                      className="h-12 md:h-16 w-auto"
+                      className="h-8 w-auto"
                     />
                   </Link>
                   <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
@@ -109,7 +109,7 @@ export default function Header() {
                   {CATEGORIES.map((category) => (
                     <motion.div key={category.slug} variants={itemVariants}>
                       <Link
-                        href={`/categoria/${category.slug}`}
+                        href={`/${category.slug}`}
                         className="text-xl text-gray-700 hover:text-[#FF0000] font-medium block py-2"
                         onClick={() => setIsOpen(false)}
                       >
