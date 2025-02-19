@@ -19,14 +19,14 @@ export default function MagazineCover() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/images/villa-del-dique-hero.jpg" // Asegúrate de tener esta imagen en tu proyecto
+        src="/images/villa-del-dique-hero.jpg"
         alt="Villa Del Dique"
         layout="fill"
         objectFit="cover"
         quality={100}
         priority
       />
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="absolute inset-0 bg-primary/50" />
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-2"
@@ -37,7 +37,7 @@ export default function MagazineCover() {
           {content.title}
         </motion.h1>
         <motion.span
-          className="text-3xl md:text-5xl font-bold text-[#FF0000] mb-6"
+          className="text-3xl md:text-5xl font-bold text-accent mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ export default function MagazineCover() {
         >
           <Button
             size="lg"
-            className="bg-[#FF0000] hover:bg-[#FF0000]/90 text-white text-lg px-8 py-4 rounded-full transition-transform hover:scale-105"
+            className="bg-secondary hover:bg-secondary/90 text-white text-lg px-8 py-4 rounded-full transition-transform hover:scale-105"
             onClick={() => document.querySelector(content.cta.link)?.scrollIntoView({ behavior: "smooth" })}
           >
             {content.cta.text}
