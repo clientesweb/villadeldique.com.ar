@@ -16,6 +16,7 @@ import Image from "next/image"
 import Preloader from "@/components/preloader"
 import AdBanner from "@/components/ad-banner"
 import AppMockup from "@/components/app-mockup"
+import SponsorSection from "@/components/sponsor-section"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -120,6 +121,8 @@ export default function Home() {
           <AdBanner />
 
           <AppMockup />
+
+          <SponsorSection />
 
           <Footer />
           <WhatsAppButton />
