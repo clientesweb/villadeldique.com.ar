@@ -11,17 +11,18 @@ interface Article {
 }
 
 export const BRAND_COLORS = {
-  primary: "#FF0000",
-  secondary: "#808080",
+  primary: "#0A0F2C",
+  secondary: "#2196F3",
+  accent: "#FFC107",
+  highlight: "#8BC34A",
+  text: "#FFFFFF",
 }
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/villadeldiquedigital",
   instagram: "https://www.instagram.com/villadeldiquedigital",
   twitter: "https://twitter.com/villadeldiquedigital",
-  youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx", // Replace with the actual YouTube channel URL
-  tiktok: "https://www.tiktok.com/@villadeldiquedigital", // Add this line
-  whatsapp: "https://wa.me/593987167782",
+  youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx",
 }
 
 export const CONTACT_INFO = {
@@ -47,6 +48,5 @@ export const ARTICLES: Article[] = [
     fullContent: "This is the full content of the sample article.",
     category: "noticias",
   },
-  // Add more articles as needed
 ]
 
