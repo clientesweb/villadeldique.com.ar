@@ -11,11 +11,11 @@ interface Article {
 }
 
 export const BRAND_COLORS = {
-  primary: "#0A0F2C",
-  secondary: "#2196F3",
-  accent: "#FFC107",
-  highlight: "#8BC34A",
-  text: "#FFFFFF",
+  primary: "#0A0F2C", // Navy blue
+  secondary: "#2196F3", // Light blue
+  accent: "#FFC107", // Yellow
+  highlight: "#8BC34A", // Green
+  text: "#FFFFFF", // White
 }
 
 export const SOCIAL_LINKS = {
