@@ -1,36 +1,35 @@
-import type React from "react"
 import "@/app/globals.css"
-import { Montserrat } from "next/font/google"
 import LocalBusinessSchema from "@/components/local-business-schema"
 import type { Metadata } from "next"
+import { Montserrat } from "next/font/google"
+import { Toaster } from "react-hot-toast"
+import type React from "react"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-montserrat",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: "Villa del Dique Digital - Tu Portal de Noticias y Eventos Locales",
+    default: "Villa del Dique Digital - Noticias, Cultura, Turismo y Negocios Locales",
     template: "%s | Villa del Dique Digital",
   },
   description:
-    "Descubre Villa del Dique a través de noticias locales, eventos culturales, guías turísticas y más. Tu fuente confiable de información sobre nuestra hermosa ciudad.",
+    "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
   keywords: [
     "Villa del Dique",
-    "noticias locales",
-    "turismo Córdoba",
-    "eventos culturales",
-    "guía turística",
-    "comercios locales",
-    "actividades Villa del Dique",
-    "Valle de Calamuchita",
-    "lago Los Molinos",
-    "turismo serrano",
+    "noticias",
+    "turismo",
+    "gastronomía",
+    "cultura",
+    "negocios",
+    "eventos",
+    "guía local",
+    "Córdoba",
   ],
   authors: [{ name: "Villa del Dique Digital" }],
-  creator: "Villa del Dique Digital",
-  publisher: "Villa del Dique Digital",
   metadataBase: new URL("https://villadeldique.com.ar"),
   alternates: {
     canonical: "/",
@@ -48,28 +47,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "Villa del Dique Digital",
-    description: "Tu portal digital para descubrir todo sobre Villa del Dique: noticias, eventos, turismo y más.",
+    description:
+      "Conoce lo mejor de Villa del Dique: noticias, turismo, gastronomía, negocios y cultura, todo en un solo lugar.",
     url: "https://villadeldique.com.ar",
     siteName: "Villa del Dique Digital",
     images: [
       {
-        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-ITK6xd1oZ6RGFvX9xevsngROjXJ3f2.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Villa del Dique Digital",
       },
     ],
-    locale: "es_AR",
   },
   twitter: {
     card: "summary_large_image",
     title: "Villa del Dique Digital",
-    description: "Descubre Villa del Dique: noticias, eventos, turismo y más en un solo lugar.",
-    images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-ITK6xd1oZ6RGFvX9xevsngROjXJ3f2.png",
-    ],
-    creator: "@VillaDiqueDig",
-    site: "@VillaDiqueDig",
+    description: "Tu portal digital sobre noticias, cultura, negocios y turismo en Villa del Dique.",
+    images: ["/twitter-image.jpg"],
   },
   robots: {
     index: true,
@@ -95,18 +90,15 @@ export default function RootLayout({
   return (
     <html lang="es" className={montserrat.variable}>
       <head>
-        <meta name="geo.region" content="AR-X" />
-        <meta name="geo.placename" content="Villa del Dique" />
-        <meta name="geo.position" content="-32.1833;-64.6833" />
-        <meta name="ICBM" content="-32.1833, -64.6833" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={`min-h-screen bg-background text-background-foreground`}>
+      <body className={montserrat.className}>
         <LocalBusinessSchema />
+        <Toaster />
         {children}
       </body>
     </html>
