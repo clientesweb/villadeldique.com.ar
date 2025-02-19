@@ -53,7 +53,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-villa-del-dique.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
               alt="Villa del Dique Digital"
               width={150}
               height={60}
@@ -67,7 +67,7 @@ export default function Header() {
               <Link
                 key={category.slug}
                 href={`/${category.slug}`}
-                className="text-sm lg:text-base text-gray-700 hover:text-[#FF0000] font-medium transition-colors"
+                className="text-sm lg:text-base text-primary hover:text-secondary font-medium transition-colors"
               >
                 {category.name}
               </Link>
@@ -88,20 +88,20 @@ export default function Header() {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed inset-0 bg-white z-50 md:hidden"
+              className="fixed inset-0 bg-primary z-50 md:hidden"
             >
               <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-4 border-b">
+                <div className="flex justify-between items-center p-4 border-b border-white/10">
                   <Link href="/" onClick={() => setIsOpen(false)}>
                     <Image
-                      src="/logo-villa-del-dique.png"
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
                       alt="Villa del Dique Digital"
                       width={150}
                       height={60}
                       className="h-8 w-auto"
                     />
                   </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="text-white">
                     <X className="h-6 w-6" />
                   </Button>
                 </div>
@@ -110,7 +110,7 @@ export default function Header() {
                     <motion.div key={category.slug} variants={itemVariants}>
                       <Link
                         href={`/${category.slug}`}
-                        className="text-xl text-gray-700 hover:text-[#FF0000] font-medium block py-2"
+                        className="text-xl text-white hover:text-accent font-medium block py-2"
                         onClick={() => setIsOpen(false)}
                       >
                         {category.name}
