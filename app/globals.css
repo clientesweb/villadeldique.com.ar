@@ -87,15 +87,15 @@
 }
 
 .prose h2 {
-  @apply text-3xl font-bold mt-12 mb-6 text-primary border-b pb-2;
+  @apply text-3xl font-bold mt-12 mb-6 text-foreground border-b pb-2;
 }
 
 .prose h3 {
-  @apply text-2xl font-semibold mt-8 mb-4 text-primary/90;
+  @apply text-2xl font-semibold mt-8 mb-4 text-foreground/90;
 }
 
 .prose p {
-  @apply mb-6 text-primary/80 leading-relaxed;
+  @apply mb-6 text-foreground/80 leading-relaxed;
 }
 
 .prose ul,
@@ -104,15 +104,15 @@
 }
 
 .prose li {
-  @apply text-primary/80;
+  @apply text-foreground/80;
 }
 
 .prose strong {
-  @apply font-bold text-primary;
+  @apply font-bold text-foreground;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-secondary pl-4 italic my-6 text-primary/90;
+  @apply border-l-4 border-secondary pl-4 italic my-6 text-foreground/90;
 }
 
 .prose a {
@@ -120,7 +120,7 @@
 }
 
 .lead {
-  @apply text-xl font-semibold text-primary;
+  @apply text-xl font-semibold text-foreground;
 }
 
 .instagram-embed-container {
