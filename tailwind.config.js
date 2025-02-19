@@ -46,6 +46,10 @@ module.exports = {
           DEFAULT: "rgb(var(--brand-accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        highlight: {
+          DEFAULT: "rgb(var(--brand-highlight))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
