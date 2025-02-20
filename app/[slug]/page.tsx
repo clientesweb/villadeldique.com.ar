@@ -22,8 +22,8 @@ interface Article {
   description: string
   image: string
   category: string
-  author: string
   date: string
+  author: string
   sections: {
     type: "paragraph" | "image" | "subtitle" | "list"
     content: string
@@ -125,6 +125,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
+          {/* Rest of the article content */}
           <div className="container mx-auto px-4 py-12">
             <div className="max-w-3xl mx-auto">
               {/* Botones de compartir */}
