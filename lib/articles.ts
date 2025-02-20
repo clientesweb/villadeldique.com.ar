@@ -24,9 +24,13 @@ export const ARTICLES_VARIOS: Article[] = [
     fullContent: `
     Villa del Dique da un paso importante en su desarrollo cultural con la inauguración del nuevo Centro Cultural Municipal, un espacio que promete convertirse en el corazón artístico de la ciudad.
 
+    [IMAGE:/images/centro-cultural-fachada.jpg] // La fachada renovada del Centro Cultural Municipal mantiene elementos arquitectónicos históricos
+
     ## Un Proyecto Largamente Esperado
 
     El nuevo centro cultural, ubicado en el corazón de Villa del Dique, es el resultado de años de planificación y trabajo conjunto entre el municipio y la comunidad artística local. El edificio, completamente restaurado, conserva elementos arquitectónicos históricos mientras incorpora instalaciones modernas.
+
+    [IMAGE:/images/centro-cultural-interior.jpg] // El espacio principal de exposiciones cuenta con iluminación natural y sistemas de montaje versátiles
 
     ## Instalaciones y Servicios
 
@@ -35,6 +39,8 @@ export const ARTICLES_VARIOS: Article[] = [
     - Talleres multiuso
     - Biblioteca digital
     - Cafetería cultural
+
+    [IMAGE:/images/centro-cultural-auditorio.jpg] // El auditorio principal durante su inauguración
 
     ## Programación Inaugural
 
