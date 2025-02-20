@@ -28,14 +28,24 @@ export default function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="block">
+      <a
+        href={SOCIAL_LINKS.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+        aria-label="Contactar por WhatsApp"
+      >
         <div className="w-16 h-16 bg-secondary rounded-full shadow-lg flex items-center justify-center">
           <MessageCircle className="w-8 h-8 text-white" />
         </div>
       </a>
 
       {showNotification && !notificationClosed && (
-        <div className="absolute bottom-full right-0 mb-4 bg-white rounded-lg shadow-xl max-w-[300px] p-4">
+        <div
+          className="absolute bottom-full right-0 mb-4 bg-white rounded-lg shadow-xl max-w-[300px] p-4"
+          role="alert"
+          aria-live="polite"
+        >
           <button
             onClick={handleClose}
             className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
