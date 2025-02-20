@@ -5,310 +5,246 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import {
-  ChevronRight,
-  ChevronLeft,
   Star,
   MapPin,
-  Home,
-  Bath,
-  BedDouble,
-  Maximize,
-  MessageCircle,
-  BarChart,
-  HardHat,
+  Calendar,
+  Clock,
+  Users,
   Search,
-  Globe,
+  Menu,
+  Bell,
+  Home,
+  Newspaper,
+  MapPinned,
+  CalendarDays,
+  BellIcon,
+  Smartphone,
+  Wifi,
 } from "lucide-react"
 
-const properties = [
-  {
-    image:
-      "/urbanizacion-al-sol.jpg",
-    location: "Al Sol Urbanización",
-    address: "Al Sol Urbanización",
-    price: "$199,900",
-    rating: 4.9,
-    beds: 3,
-    baths: 2,
-    sqft: 135.48,
-    type: "Modelo 1",
-  },
-  {
-    image:
-      "/urbanizacion-al-sol2.jpg",
-    location: "Al Sol Urbanización",
-    address: "Al Sol Urbanización",
-    price: "$201,900",
-    rating: 4.8,
-    beds: 3,
-    baths: 2.5,
-    sqft: 154.44,
-    type: "Modelo 2",
-  },
-  {
-    image:
-      "/urbanizacion-al-sol3.jpg",
-    location: "Al Sol Urbanización",
-    address: "Al Sol Urbanización",
-    price: "$219,900",
-    rating: 4.7,
-    beds: 4,
-    baths: 2.5,
-    sqft: 174.52,
-    type: "Modelo 3",
-  },
-]
+const mockupContent = {
+  news: [
+    {
+      id: 1,
+      title: "Nuevo Centro Cultural",
+      image: "https://images.unsplash.com/photo-1561839561-b13bcfe95249?auto=format&fit=crop&q=80",
+      category: "Cultura",
+      date: "Hoy",
+    },
+    {
+      id: 2,
+      title: "Festival Gastronómico",
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80",
+      category: "Eventos",
+      date: "Mañana",
+    },
+  ],
+  places: [
+    {
+      id: 1,
+      name: "Café del Lago",
+      type: "Restaurante",
+      image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3",
+      rating: 4.9,
+      schedule: "9:00 - 23:00",
+    },
+    {
+      id: 2,
+      name: "Mirador del Cerro",
+      type: "Atracción",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      rating: 4.8,
+      schedule: "24 horas",
+    },
+  ],
+  events: [
+    {
+      id: 1,
+      name: "Festival de Teatro",
+      date: "20 Mar",
+      image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf",
+      location: "Plaza Central",
+    },
+    {
+      id: 2,
+      name: "Feria Gastronómica",
+      date: "25 Mar",
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0",
+      location: "Costanera",
+    },
+  ],
+}
 
 const features = [
   {
-    title: "Propiedades y Proyectos Exclusivos",
-    description: "Lo mejor de Ecuador, Panamá y Estados Unidos",
-    icon: Globe,
+    icon: Newspaper,
+    title: "Noticias Locales",
+    description: "Mantente informado sobre todo lo que sucede",
   },
   {
-    title: "Avances de Obras",
-    description: "Actualizaciones constantes de primera calidad",
-    icon: HardHat,
+    icon: MapPinned,
+    title: "Guía Turística",
+    description: "Descubre los mejores lugares para visitar",
   },
   {
-    title: "Chat con Agentes",
-    description: "Comunicación directa con expertos inmobiliarios",
-    icon: MessageCircle,
+    icon: CalendarDays,
+    title: "Eventos",
+    description: "No te pierdas ninguna actividad",
   },
   {
-    title: "Análisis de Mercado Interactivo",
-    description: "Informes descargables y personalizables",
-    icon: BarChart,
+    icon: BellIcon,
+    title: "Notificaciones",
+    description: "Recibe alertas importantes",
+  },
+  {
+    icon: Smartphone,
+    title: "Modo Offline",
+    description: "Accede sin conexión",
+  },
+  {
+    icon: Wifi,
+    title: "Siempre Actualizado",
+    description: "Información en tiempo real",
   },
 ]
 
 export default function AppMockup() {
-  const [currentProperty, setCurrentProperty] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [currentSection, setCurrentSection] = useState<"news" | "places" | "events">("news")
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentProperty((prev) => (prev + 1) % properties.length)
+      setCurrentIndex((prev) => (prev + 1) % mockupContent[currentSection].length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
-
-  const nextProperty = () => {
-    if (!isAnimating) {
-      setIsAnimating(true)
-      setCurrentProperty((prev) => (prev + 1) % properties.length)
-      setTimeout(() => setIsAnimating(false), 500)
-    }
-  }
-
-  const prevProperty = () => {
-    if (!isAnimating) {
-      setIsAnimating(true)
-      setCurrentProperty((prev) => (prev - 1 + properties.length) % properties.length)
-      setTimeout(() => setIsAnimating(false), 500)
-    }
-  }
+  }, [currentSection])
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
-          {/* App Info Section */}
+        <div className="flex flex-col items-center">
+          {/* Título y Descripción */}
           <motion.div
-            className="lg:w-1/2 text-center lg:text-left"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mb-12"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white leading-tight">
-              Gestiona Inversiones Inmobiliarias de Clase Mundial
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+              Villa del Dique
+              <span className="block text-accent mt-2">en tu bolsillo</span>
             </h2>
-            <p className="text-xl mb-12 text-gray-300 leading-relaxed">
-              Accede a propiedades exclusivas, análisis de mercado y gestión de ventas en Ecuador, Panamá y Estados
-              Unidos.
+            <p className="text-lg text-gray-300">
+              Toda la información que necesitas sobre nuestra ciudad, ahora en una aplicación moderna y fácil de usar.
             </p>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                >
-                  <div className="bg-gradient-to-br from-red-500 to-red-600 p-3 rounded-2xl">
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Download Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button
-                className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-xl text-lg transition-transform hover:scale-105 flex items-center justify-center h-16"
-                onClick={() => window.open("https://play.google.com/store", "_blank")}
-              >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/en_badge_web_generic-CWzgT7mvxJlTZ5qd9sZeLEH6bKLaRm.png"
-                  alt="Get it on Google Play"
-                  width={135}
-                  height={40}
-                  className="h-auto"
-                />
-              </Button>
-              <Button
-                className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-xl text-lg transition-transform hover:scale-105 flex items-center justify-center h-16"
-                onClick={() => window.open("https://www.apple.com/app-store/", "_blank")}
-              >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/badge-download-on-the-app-store-Tgd9npUVIdCDtrcMsYVdfJucAj5pQn.svg"
-                  alt="Download on the App Store"
-                  width={120}
-                  height={40}
-                  className="h-auto"
-                />
-              </Button>
-            </div>
           </motion.div>
 
-          {/* Phone Mockup Section */}
+          {/* Smartphone Mockup */}
           <motion.div
-            className="lg:w-1/2 relative"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative mb-12"
           >
-            <div className="relative mx-auto" style={{ maxWidth: "375px" }}>
-              {/* Phone Frame */}
-              <div className="relative rounded-[3rem] overflow-hidden bg-black shadow-2xl border-8 border-gray-800">
-                {/* Screen Content */}
-                <div className="relative bg-white" style={{ aspectRatio: "1/2" }}>
-                  {/* Status Bar */}
-                  <div className="bg-black text-white p-2 flex justify-between items-center text-xs">
-                    <span>9:41</span>
-                    <div className="flex items-center gap-2">
-                      <Signal className="w-4 h-4" />
-                      <Wifi className="w-4 h-4" />
-                      <Battery className="w-4 h-4" />
-                    </div>
-                  </div>
-
-                  {/* App Content */}
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentProperty}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="relative"
-                    >
-                      {/* Property Image */}
-                      <div className="relative h-72">
-                        <Image
-                          src={properties[currentProperty].image || "/placeholder.svg"}
-                          alt={`Propiedad en ${properties[currentProperty].location}`}
-                          layout="fill"
-                          objectFit="cover"
-                          className="brightness-90"
-                        />
-                        {/* Image Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60" />
-
-                        {/* Property Type Badge */}
-                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                          <p className="text-sm font-medium text-gray-900">{properties[currentProperty].type}</p>
-                        </div>
-
-                        {/* Navigation Dots */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                          {properties.map((_, index) => (
-                            <div
-                              key={index}
-                              className={`w-2 h-2 rounded-full ${
-                                index === currentProperty ? "bg-white" : "bg-white/50"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Property Details */}
-                      <div className="p-4">
-                        <div className="flex justify-between items-start mb-4">
-                          <div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-1">
-                              {properties[currentProperty].price}
-                            </h3>
-                            <div className="flex items-center text-gray-600 text-sm">
-                              <MapPin className="w-4 h-4 mr-1" />
-                              {properties[currentProperty].address}
-                            </div>
-                          </div>
-                          <div className="flex items-center bg-red-50 px-2 py-1 rounded-lg">
-                            <Star className="w-4 h-4 text-red-500 mr-1" />
-                            <span className="text-sm font-medium text-red-600">
-                              {properties[currentProperty].rating}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Property Features */}
-                        <div className="grid grid-cols-3 gap-4 mb-4">
-                          <div className="flex items-center gap-2">
-                            <BedDouble className="w-5 h-5 text-gray-600" />
-                            <span className="text-sm text-gray-600">{properties[currentProperty].beds} hab</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Bath className="w-5 h-5 text-gray-600" />
-                            <span className="text-sm text-gray-600">{properties[currentProperty].baths} baños</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Maximize className="w-5 h-5 text-gray-600" />
-                            <span className="text-sm text-gray-600">{properties[currentProperty].sqft} m²</span>
-                          </div>
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="flex gap-3">
-                          <Button className="flex-1 bg-red-500 hover:bg-red-600 text-white">Ver Avance de Obra</Button>
-                          <Button variant="outline" className="px-4">
-                            <MessageCircle className="w-5 h-5" />
-                          </Button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
+            <div className="relative mx-auto" style={{ maxWidth: "280px" }}>
+              <div className="relative rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border-8 border-gray-800">
+                <div className="relative bg-white" style={{ aspectRatio: "9/19.5" }}>
+                  <AppContent
+                    currentSection={currentSection}
+                    setCurrentSection={setCurrentSection}
+                    content={mockupContent[currentSection][currentIndex]}
+                  />
                 </div>
               </div>
 
-              {/* Navigation Buttons */}
-              <Button
-                variant="outline"
-                size="icon"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white/10 hover:bg-white/20 text-white rounded-full"
-                onClick={prevProperty}
-                disabled={isAnimating}
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white/10 hover:bg-white/20 text-white rounded-full"
-                onClick={nextProperty}
-                disabled={isAnimating}
-              >
-                <ChevronRight className="h-6 w-6" />
-              </Button>
+              {/* Efecto de Brillo */}
+              <motion.div
+                className="absolute -z-10 blur-3xl"
+                animate={{
+                  background: [
+                    "radial-gradient(circle at 50% 50%, rgba(var(--brand-accent), 0.2) 0%, transparent 50%)",
+                    "radial-gradient(circle at 50% 50%, rgba(var(--brand-secondary), 0.2) 0%, transparent 50%)",
+                  ],
+                }}
+                transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+                style={{
+                  width: "150%",
+                  height: "150%",
+                  top: "-25%",
+                  left: "-25%",
+                }}
+              />
             </div>
+          </motion.div>
+
+          {/* Botones de Descarga */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-row gap-4 justify-center items-center mb-12"
+          >
+            <StoreButton
+              type="google"
+              className="w-48"
+              onClick={() => window.open("https://play.google.com/store", "_blank")}
+            />
+            <StoreButton
+              type="apple"
+              className="w-48"
+              onClick={() => window.open("https://www.apple.com/app-store/", "_blank")}
+            />
+          </motion.div>
+
+          {/* Grid de Características */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 w-full max-w-4xl"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 flex items-start gap-3 group hover:bg-white/20 transition-colors"
+              >
+                <div className="bg-accent/20 rounded-lg p-2 group-hover:bg-accent/30 transition-colors">
+                  <feature.icon className="w-5 h-5 text-accent" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-white font-semibold text-sm mb-1">{feature.title}</h3>
+                  <p className="text-xs text-gray-300">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Tags y Estado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-wrap justify-center gap-3"
+          >
+            <span className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-3 py-1 rounded-full">
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "reverse",
+                }}
+                className="w-2 h-2 bg-accent rounded-full"
+              />
+              <span className="text-accent text-xs font-medium">En desarrollo</span>
+            </span>
+            <span className="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white">Versión Beta</span>
+            <span className="bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white">Próximamente</span>
           </motion.div>
         </div>
       </div>
@@ -316,35 +252,181 @@ export default function AppMockup() {
   )
 }
 
-// Status Bar Icons
-function Signal({ className }: { className?: string }) {
+function StoreButton({
+  type,
+  className,
+  onClick,
+}: {
+  type: "google" | "apple"
+  className?: string
+  onClick: () => void
+}) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <rect x="1" y="14" width="4" height="6" rx="1" />
-      <rect x="7" y="10" width="4" height="10" rx="1" />
-      <rect x="13" y="6" width="4" height="14" rx="1" />
-      <rect x="19" y="2" width="4" height="18" rx="1" />
-    </svg>
+    <div className="relative">
+      <Button
+        className={`bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-xl transition-all duration-300 flex items-center justify-center h-14 group ${className}`}
+        onClick={onClick}
+      >
+        <Image
+          src={
+            type === "google"
+              ? "https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png"
+              : "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/es-es?size=250x83"
+          }
+          alt={type === "google" ? "Disponible en Google Play" : "Descargar en el App Store"}
+          width={type === "google" ? 140 : 120}
+          height={type === "google" ? 56 : 40}
+          className="h-auto transition-transform duration-300 group-hover:scale-105"
+        />
+      </Button>
+      <motion.div
+        className="absolute -top-2 -right-2 bg-accent/90 backdrop-blur-sm text-primary px-2 py-0.5 rounded-full text-xs font-bold shadow-lg"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        Pronto
+      </motion.div>
+    </div>
   )
 }
 
-function Wifi({ className }: { className?: string }) {
+function AppContent({
+  currentSection,
+  setCurrentSection,
+  content,
+}: {
+  currentSection: "news" | "places" | "events"
+  setCurrentSection: (section: "news" | "places" | "events") => void
+  content: any
+}) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 16L12 16C13.1046 16 14 16.8954 14 18V18C14 19.1046 13.1046 20 12 20V20C10.8954 20 10 19.1046 10 18V18C10 16.8954 10.8954 16 12 16Z" />
-      <path d="M12 12C14.7614 12 17 14.2386 17 17H7C7 14.2386 9.23858 12 12 12Z" />
-      <path d="M12 8C16.4183 8 20 11.5817 20 16H4C4 11.5817 7.58172 8 12 8Z" />
-      <path d="M12 4C18.0751 4 23 8.92487 23 15H1C1 8.92487 5.92487 4 12 4Z" />
-    </svg>
+    <>
+      {/* Status Bar */}
+      <div className="bg-black text-white px-4 py-1 text-xs flex justify-between items-center">
+        <span>9:41</span>
+        <div className="flex items-center gap-1">
+          <div className="w-4 h-4 bg-white/90 rounded-full" />
+          <div className="w-4 h-4 bg-white/80 rounded-full" />
+          <div className="w-4 h-4 bg-white/70 rounded-full" />
+        </div>
+      </div>
+
+      {/* App Header */}
+      <div className="bg-primary text-white p-3">
+        <div className="flex justify-between items-center mb-3">
+          <Menu className="w-5 h-5" />
+          <h1 className="text-sm font-semibold">Villa del Dique Digital</h1>
+          <Bell className="w-5 h-5" />
+        </div>
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <input
+            type="text"
+            placeholder="Buscar..."
+            className="w-full bg-white/10 rounded-full py-1.5 pl-9 pr-4 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-accent"
+          />
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <div className="flex justify-around p-2 bg-gray-50 border-b">
+        {["news", "places", "events"].map((section) => (
+          <button
+            key={section}
+            onClick={() => setCurrentSection(section as any)}
+            className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
+              currentSection === section ? "bg-secondary text-white" : "text-gray-600 hover:bg-gray-100"
+            }`}
+          >
+            {section.charAt(0).toUpperCase() + section.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSection}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="p-3"
+        >
+          <ContentCard content={content} type={currentSection} />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Bottom Navigation */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-1.5">
+        <div className="flex justify-around">
+          <Home className="w-5 h-5 text-secondary" />
+          <Search className="w-5 h-5 text-gray-400" />
+          <Calendar className="w-5 h-5 text-gray-400" />
+          <Users className="w-5 h-5 text-gray-400" />
+        </div>
+      </div>
+    </>
   )
 }
 
-function Battery({ className }: { className?: string }) {
+function ContentCard({ content, type }: { content: any; type: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <rect x="2" y="6" width="18" height="12" rx="2" />
-      <rect x="20" y="9" width="2" height="6" rx="1" />
-    </svg>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white rounded-lg shadow-md overflow-hidden"
+    >
+      <div className="relative h-32">
+        <Image
+          src={content.image || "/placeholder.svg"}
+          alt={content.title || content.name}
+          layout="fill"
+          objectFit="cover"
+        />
+        {type === "news" && (
+          <div className="absolute top-2 right-2 bg-accent text-primary text-xs font-bold px-2 py-0.5 rounded-full">
+            {content.category}
+          </div>
+        )}
+        {type === "events" && (
+          <div className="absolute top-2 left-2 bg-accent text-primary text-xs font-bold px-2 py-0.5 rounded-lg">
+            {content.date}
+          </div>
+        )}
+      </div>
+      <div className="p-3">
+        <h3 className="font-bold text-sm mb-1">{content.title || content.name}</h3>
+        {type === "news" && (
+          <div className="flex items-center text-xs text-gray-500">
+            <Calendar className="w-3 h-3 mr-1" />
+            <span>{content.date}</span>
+          </div>
+        )}
+        {type === "places" && (
+          <>
+            <div className="flex items-center text-xs text-gray-500 mb-1">
+              <Clock className="w-3 h-3 mr-1" />
+              <span>{content.schedule}</span>
+            </div>
+            <div className="flex items-center">
+              <Star className="w-3 h-3 text-accent mr-1" />
+              <span className="text-xs font-medium">{content.rating}</span>
+            </div>
+          </>
+        )}
+        {type === "events" && (
+          <div className="flex items-center text-xs text-gray-500">
+            <MapPin className="w-3 h-3 mr-1" />
+            <span>{content.location}</span>
+          </div>
+        )}
+      </div>
+    </motion.div>
   )
 }
 
