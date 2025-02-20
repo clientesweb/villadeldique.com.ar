@@ -58,7 +58,6 @@ export default function InstagramFeed() {
                   maxWidth: "540px",
                   minWidth: "326px",
                   padding: "0",
-                  width: "99.375%",
                   width: "calc(100% - 2px)",
                 }}
               ></blockquote>
