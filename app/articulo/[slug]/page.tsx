@@ -4,7 +4,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Facebook, Twitter, Linkedin, Share2 } from "lucide-react"
 import Link from "next/link"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ARTICLES } from "@/lib/constants"
 import { ARTICLES_VARIOS } from "@/lib/articles"
@@ -73,7 +72,6 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
 
   return (
     <>
-      <Header />
       <article className="min-h-screen bg-gray-50">
         <div className="relative h-[70vh] bg-black">
           <Image
@@ -84,6 +82,12 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
             className="transition-opacity duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+          <Link href="/" className="absolute top-4 left-4 z-10">
+            <Button variant="outline" className="bg-white/20 hover:bg-white/30 text-white">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Volver a Inicio
+            </Button>
+          </Link>
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <div className="container mx-auto">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -100,13 +104,6 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
 
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-3xl mx-auto">
-            <Link href="/">
-              <Button variant="outline" className="mb-6">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Volver
-              </Button>
-            </Link>
-
             {/* Botones de compartir */}
             <div className="sticky top-4 z-10 bg-white/80 backdrop-blur-sm rounded-full shadow-lg p-2 mb-8 flex justify-center gap-2 max-w-fit mx-auto">
               <motion.div
