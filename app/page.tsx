@@ -9,11 +9,13 @@ import LatestNews from "@/components/latest-news"
 import InstagramFeed from "@/components/instagram-feed"
 import Footer from "@/components/footer"
 import WhatsAppButton from "@/components/whatsapp-button"
-import FeaturedAccommodations from "@/components/featured-accommodations"
-import AppMockup from "@/components/app-mockup"
-import SponsorSection from "@/components/sponsor-section"
 import LocalBusinessAds from "@/components/local-business-ads"
 import Preloader from "@/components/preloader"
+import dynamic from "next/dynamic"
+
+const FeaturedAccommodations = dynamic(() => import("@/components/featured-accommodations"), { ssr: false })
+const AppMockup = dynamic(() => import("@/components/app-mockup"), { ssr: false })
+const SponsorSection = dynamic(() => import("@/components/sponsor-section"), { ssr: false })
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
