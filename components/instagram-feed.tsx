@@ -1,27 +1,16 @@
-'use client'
+"use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react"
 
-const INSTAGRAM_POSTS = [
-  'DFjgpJQueRO',
-  'DFiUpyVu-nd',
-  'DFgiSwiOU9L',
-  'DFdiIPfyn-H',
-  'DFdHoFCuvBx',
-  'DFai97bOa_u',
-  'DFZDYazuwBM',
-  'DFXxCuDOBON',
-  'DFWexLFOS8J',
-  'DFSzUoQOIJr'
-]
+const INSTAGRAM_POSTS = ["DE8ZYSUuV34", "DE5MwjSuVi_", "DE1efOSu98a", "DExZxiLO-b3"]
 
 declare global {
   interface Window {
     instgrm?: {
       Embeds: {
-        process: () => void;
-      };
-    };
+        process: () => void
+      }
+    }
   }
 }
 
@@ -30,8 +19,8 @@ export default function InstagramFeed() {
 
   useEffect(() => {
     // Load Instagram embed script
-    const script = document.createElement('script')
-    script.src = 'https://www.instagram.com/embed.js'
+    const script = document.createElement("script")
+    script.src = "https://www.instagram.com/embed.js"
     script.async = true
     document.body.appendChild(script)
 
@@ -49,12 +38,10 @@ export default function InstagramFeed() {
   }, [])
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="py-12 sm:py-16 bg-gradient-to-b from-primary/5 to-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">
-          Últimos Posts en Instagram
-        </h2>
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-primary">Síguenos en Instagram</h2>
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {INSTAGRAM_POSTS.map((postId) => (
             <div key={postId} className="instagram-embed-container aspect-square">
               <blockquote
@@ -63,17 +50,18 @@ export default function InstagramFeed() {
                 data-instgrm-permalink={`https://www.instagram.com/p/${postId}/`}
                 data-instgrm-version="14"
                 style={{
-                  background: '#FFF',
-                  border: '0',
-                  borderRadius: '3px',
-                  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-                  margin: '1px',
-                  maxWidth: '540px',
-                  minWidth: '326px',
-                  width: 'calc(100% - 2px)',
+                  background: "#FFF",
+                  border: "0",
+                  borderRadius: "3px",
+                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                  margin: "1px",
+                  maxWidth: "540px",
+                  minWidth: "326px",
+                  padding: "0",
+                  width: "99.375%",
+                  width: "calc(100% - 2px)",
                 }}
-              >
-              </blockquote>
+              ></blockquote>
             </div>
           ))}
         </div>
