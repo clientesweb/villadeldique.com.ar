@@ -13,7 +13,7 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import Image from "next/image"
 import Preloader from "@/components/preloader"
-import AdBanner from "@/components/ad-banner"
+import FeaturedAccommodations from "@/components/featured-accommodations"
 import AppMockup from "@/components/app-mockup"
 import SponsorSection from "@/components/sponsor-section"
 import { motion } from "framer-motion"
@@ -86,7 +86,7 @@ export default function Home() {
               >
                 {ARTICLES_VARIOS.slice(0, 6).map((article) => (
                   <motion.div key={article.id} variants={item}>
-                    <Link href={`/articulo/${article.slug}`}>
+                    <Link href={`/${article.slug}`}>
                       <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-white">
                         <CardHeader className="p-0">
                           <div className="relative">
@@ -145,7 +145,7 @@ export default function Home() {
           <FeaturedArticles />
           <LocalBusinessAds />
           <InstagramFeed />
-          <AdBanner />
+          <FeaturedAccommodations />
           <AppMockup />
           <SponsorSection />
           <Footer />
