@@ -74,6 +74,7 @@ export default function Header() {
                   className={`text-white hover:text-accent font-medium transition-colors px-3 py-2 rounded-md flex items-center ${
                     pathname.startsWith(`/${category.slug}`) ? "text-accent" : ""
                   }`}
+                  aria-label={`Go to ${category.name}`}
                 >
                   {category.name}
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
@@ -90,12 +91,14 @@ export default function Header() {
                       <Link
                         href={`/${category.slug}/subcategoria-1`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        aria-label="Go to Subcategoría 1"
                       >
                         Subcategoría 1
                       </Link>
                       <Link
                         href={`/${category.slug}/subcategoria-2`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        aria-label="Go to Subcategoría 2"
                       >
                         Subcategoría 2
                       </Link>
@@ -112,18 +115,25 @@ export default function Header() {
                 variant="outline"
                 size="sm"
                 className="text-white border-white hover:bg-white hover:text-secondary bg-secondary/50"
+                aria-label="Iniciar sesión"
               >
                 Iniciar sesión
               </Button>
               <span className="text-xs text-white mt-1">Próximamente</span>
             </div>
-            <Button size="sm" className="bg-accent hover:bg-accent/90 text-primary">
+            <Button size="sm" className="bg-accent hover:bg-accent/90 text-primary" aria-label="Contactar">
               <Phone className="mr-2 h-4 w-4" />
               Contactar
             </Button>
           </div>
 
-          <Button variant="ghost" size="icon" className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -147,6 +157,7 @@ export default function Header() {
                     pathname.startsWith(`/${category.slug}`) ? "text-accent" : ""
                   }`}
                   onClick={() => setIsOpen(false)}
+                  aria-label={`Go to ${category.name}`}
                 >
                   {category.name}
                 </Link>
@@ -157,12 +168,13 @@ export default function Header() {
                     variant="outline"
                     size="sm"
                     className="w-full text-white border-white hover:bg-white hover:text-secondary bg-secondary/50"
+                    aria-label="Iniciar sesión"
                   >
                     Iniciar sesión
                   </Button>
                   <span className="text-xs text-white mt-1">Próximamente</span>
                 </div>
-                <Button size="sm" className="w-full bg-accent hover:bg-accent/90 text-primary">
+                <Button size="sm" className="w-full bg-accent hover:bg-accent/90 text-primary" aria-label="Contactar">
                   <Phone className="mr-2 h-4 w-4" />
                   Contactar
                 </Button>
@@ -174,4 +186,3 @@ export default function Header() {
     </header>
   )
 }
-
