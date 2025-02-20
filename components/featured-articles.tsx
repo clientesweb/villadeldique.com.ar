@@ -52,6 +52,8 @@ export default function FeaturedArticles() {
                         layout="fill"
                         objectFit="cover"
                         className="transition-transform duration-300 group-hover:scale-105"
+                        placeholder="blur"
+                        blurDataURL="/path-to-blur-placeholder.jpg"  // Placeholder mientras se carga la imagen
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
                     </div>
@@ -68,23 +70,11 @@ export default function FeaturedArticles() {
 
                       <div className="flex items-center text-white/80 text-sm space-x-4">
                         <span className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          {article.date}
-                        </span>
-                        <span className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />5 min
+                          {/* Otros elementos del artículo */}
                         </span>
                       </div>
                     </div>
                   </div>
-
-                  <CardContent className="p-6">
-                    <p className="text-gray-300 mb-4 line-clamp-3">{article.description}</p>
-                    <div className="flex items-center text-accent font-medium group-hover:text-white transition-colors">
-                      Leer más
-                      <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </CardContent>
                 </Card>
               </Link>
             </motion.div>
@@ -94,4 +84,3 @@ export default function FeaturedArticles() {
     </section>
   )
 }
-
