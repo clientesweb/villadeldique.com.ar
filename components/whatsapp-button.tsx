@@ -27,7 +27,38 @@ export default function WhatsAppButton() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50 flex items-end">
+      {showNotification && !notificationClosed && (
+        <div
+          className="bg-white rounded-lg shadow-xl p-4 mr-4 mb-2 max-w-[250px] sm:max-w-[300px]"
+          role="alert"
+          aria-live="polite"
+        >
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Cerrar notificación"
+          >
+            <X size={16} />
+          </button>
+          <div className="flex items-start space-x-3">
+            <Image
+              src="/logo-villa-del-dique-digital.png"
+              alt="Villa del Dique Digital"
+              width={40}
+              height={40}
+              className="rounded-full flex-shrink-0"
+            />
+            <div>
+              <h3 className="font-semibold text-primary text-sm mb-1">¿Necesitas información?</h3>
+              <p className="text-xs text-gray-600 mb-2">
+                Estamos aquí para ayudarte a descubrir todo sobre Villa del Dique.
+              </p>
+              <p className="text-xs text-accent font-medium">Respuesta inmediata vía WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      )}
       <a
         href={SOCIAL_LINKS.whatsapp}
         target="_blank"
@@ -35,43 +66,10 @@ export default function WhatsAppButton() {
         className="block"
         aria-label="Contactar por WhatsApp"
       >
-        <div className="w-16 h-16 bg-secondary rounded-full shadow-lg flex items-center justify-center">
-          <MessageCircle className="w-8 h-8 text-white" />
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-secondary rounded-full shadow-lg flex items-center justify-center hover:bg-secondary/90 transition-colors">
+          <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
         </div>
       </a>
-
-      {showNotification && !notificationClosed && (
-        <div
-          className="absolute bottom-full right-0 mb-4 bg-white rounded-lg shadow-xl max-w-[300px] p-4"
-          role="alert"
-          aria-live="polite"
-        >
-          <button
-            onClick={handleClose}
-            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            <X size={16} />
-          </button>
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0">
-              <Image
-                src="/logo-villa-del-dique-digital.png"
-                alt="Villa del Dique Digital"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-primary mb-1">¿Necesitas información?</h3>
-              <p className="text-sm text-gray-600 mb-2">
-                Estamos aquí para ayudarte a descubrir todo sobre Villa del Dique.
-              </p>
-              <p className="text-xs text-gray-500">Respuesta inmediata vía WhatsApp</p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
