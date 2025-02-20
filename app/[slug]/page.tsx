@@ -22,6 +22,7 @@ interface Article {
   description: string
   image: string
   category: string
+  author: string
   date: string
   sections: {
     type: "paragraph" | "image" | "subtitle" | "list"
