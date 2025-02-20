@@ -28,7 +28,7 @@ export default function MagazineCover() {
         priority
       />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80" />
-      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
+      <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4 pt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
