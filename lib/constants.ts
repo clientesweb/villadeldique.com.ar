@@ -47,39 +47,8 @@ export const ARTICLES: Article[] = [
     title: "Bienvenidos a Villa del Dique Digital",
     description: "Tu nueva fuente de información sobre todo lo que sucede en Villa del Dique",
     image: "/hero-villa-del-dique-lago.jpg",
-    fullContent: "Villa del Dique es un lugar lleno de historia, naturaleza y cultura. Ahora, con este nuevo proyecto digital, queremos acercarte aún más a la esencia de nuestra localidad. **Villa del Dique Digital** nace con la misión de informar, destacar y conectar a la comunidad con noticias positivas, turismo, gastronomía, negocios locales y cultura.
-
-**Nuestra Misión**
-
-En un mundo donde la información fluye rápidamente, buscamos ofrecer un espacio confiable donde puedas encontrar lo mejor de Villa del Dique. Queremos ser el puente entre vecinos, emprendedores, turistas y amantes de este rincón de Córdoba, brindando contenido que inspire y sume valor a nuestra comunidad.
-
-**¿Qué Encontrarás Aquí?**
-
-**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.
-[IMAGE:/images/centro-cultural-fachada.jpg] // Vista panorámica del embalse al atardecer
-
-**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.
-[IMAGE:/images/centro-cultural-fachada.jpg] // Vista panorámica del embalse al atardecer
-
-**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.
-[IMAGE:/images/centro-cultural-fachada.jpg] // Platos típicos
-
-**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.
-[IMAGE:/images/centro-cultural-fachada.jpg] // Emprendedores locales presentando sus productos
-
-**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.
-[IMAGE:/images/centro-cultural-fachada.jpg] // Evento cultural con música y danzas tradicionales
-
-**Una Comunidad Conectada**
-
-Este proyecto también se extiende a nuestras redes sociales, donde compartimos contenido exclusivo, interactuamos con los vecinos y promovemos el desarrollo local. Síguenos en Instagram y Facebook para estar al día con todo lo que sucede en Villa del Dique.
-
-Agradecimiento a **Nuestros Patrocinadores**
-
-Queremos expresar nuestro más sincero agradecimiento a los patrocinadores que hacen posible este proyecto. Su apoyo nos permite seguir difundiendo la riqueza de Villa del Dique y conectar con nuestra comunidad.
-
-Te invitamos a ser parte de este viaje digital, donde juntos construiremos un espacio de encuentro, información y apoyo para todos los que aman Villa del Dique. **¡Bienvenidos!**
-",
+    fullContent:
+      "Villa del Dique es un lugar lleno de historia, naturaleza y cultura. Ahora, con este nuevo proyecto digital, queremos acercarte aún más a la esencia de nuestra localidad. **Villa del Dique Digital** nace con la misión de informar, destacar y conectar a la comunidad con noticias positivas, turismo, gastronomía, negocios locales y cultura.\n\n**Nuestra Misión**\n\nEn un mundo donde la información fluye rápidamente, buscamos ofrecer un espacio confiable donde puedas encontrar lo mejor de Villa del Dique. Queremos ser el puente entre vecinos, emprendedores, turistas y amantes de este rincón de Córdoba, brindando contenido que inspire y sume valor a nuestra comunidad.\n\n**¿Qué Encontrarás Aquí?**\n\n**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.\n[IMAGE:/images/centro-cultural-fachada.jpg] // Vista panorámica del embalse al atardecer\n\n**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.\n[IMAGE:/images/centro-cultural-fachada.jpg] // Vista panorámica del embalse al atardecer\n\n**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.\n[IMAGE:/images/centro-cultural-fachada.jpg] // Platos típicos\n\n**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.\n[IMAGE:/images/centro-cultural-fachada.jpg] // Emprendedores locales presentando sus productos\n\n**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.\n[IMAGE:/images/centro-cultural-fachada.jpg] // Evento cultural con música y danzas tradicionales\n\n**Una Comunidad Conectada**\n\nEste proyecto también se extiende a nuestras redes sociales, donde compartimos contenido exclusivo, interactuamos con los vecinos y promovemos el desarrollo local. Síguenos en Instagram y Facebook para estar al día con todo lo que sucede en Villa del Dique.\n\nAgradecimiento a **Nuestros Patrocinadores**\n\nQueremos expresar nuestro más sincero agradecimiento a los patrocinadores que hacen posible este proyecto. Su apoyo nos permite seguir difundiendo la riqueza de Villa del Dique y conectar con nuestra comunidad.\n\nTe invitamos a ser parte de este viaje digital, donde juntos construiremos un espacio de encuentro, información y apoyo para todos los que aman Villa del Dique. **¡Bienvenidos!**",
     category: "noticias",
   },
   // Más artículos aquí...
