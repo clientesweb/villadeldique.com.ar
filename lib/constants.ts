@@ -14,8 +14,13 @@ interface Article {
   category: string
   date: string
   author: string
-  sections: ArticleSection[]
-  subtitle?: string // Agregamos esta línea
+  sections: {
+    type: "paragraph" | "image" | "subtitle" | "list"
+    content: string
+    items?: string[]
+    caption?: string
+  }[]
+  subtitle?: string
 }
 
 export const BRAND_COLORS = {
