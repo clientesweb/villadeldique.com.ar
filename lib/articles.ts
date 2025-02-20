@@ -1,17 +1,4 @@
-interface Article {
-  id: number
-  slug: string
-  title: string
-  description: string
-  image: string
-  fullContent: string
-  category: string
-  subtitle?: string
-  importantFact?: string
-  date?: string
-  author?: string
-  sections?: { type: string; content: string }[]
-}
+import type { Article } from "./constants"
 
 export const ARTICLES_VARIOS: Article[] = [
   {
@@ -22,39 +9,37 @@ export const ARTICLES_VARIOS: Article[] = [
     image: "https://images.unsplash.com/photo-1561839561-b13bcfe95249?auto=format&fit=crop&q=80",
     slug: "nuevo-centro-cultural",
     category: "noticias",
-    subtitle: "Un Nuevo Espacio para el Arte y la Cultura",
-    importantFact: "El centro cultural cuenta con más de 500m² dedicados a exposiciones y talleres.",
-    fullContent: `
-    Villa del Dique da un paso importante en su desarrollo cultural con la inauguración del nuevo Centro Cultural Municipal, un espacio que promete convertirse en el corazón artístico de la ciudad.
-
-    [IMAGE:/images/centro-cultural-fachada.jpg] // La fachada renovada del Centro Cultural Municipal mantiene elementos arquitectónicos históricos
-
-    ## Un Proyecto Largamente Esperado
-
-    El nuevo centro cultural, ubicado en el corazón de Villa del Dique, es el resultado de años de planificación y trabajo conjunto entre el municipio y la comunidad artística local. El edificio, completamente restaurado, conserva elementos arquitectónicos históricos mientras incorpora instalaciones modernas.
-
-    [IMAGE:/images/centro-cultural-interior.jpg] // El espacio principal de exposiciones cuenta con iluminación natural y sistemas de montaje versátiles
-
-    ## Instalaciones y Servicios
-
-    - Sala principal de exposiciones
-    - Auditorio para 200 personas
-    - Talleres multiuso
-    - Biblioteca digital
-    - Cafetería cultural
-
-    [IMAGE:/images/centro-cultural-auditorio.jpg] // El auditorio principal durante su inauguración
-
-    ## Programación Inaugural
-
-    La agenda de apertura incluye exposiciones de artistas locales, conciertos de música clásica y popular, y talleres gratuitos para todas las edades. El objetivo es crear un espacio vivo y dinámico que refleje la rica vida cultural de Villa del Dique.
-
-    ## Impacto en la Comunidad
-
-    Este nuevo espacio no solo enriquece la oferta cultural de la ciudad, sino que también genera nuevas oportunidades para artistas locales y impulsa el turismo cultural en la región.
-    `,
     date: "2024-03-01",
     author: "María González",
+    subtitle: "Un Nuevo Espacio para el Arte y la Cultura",
+    importantFact: "El centro cultural cuenta con más de 500m² dedicados a exposiciones y talleres.",
+    fullContent: `Villa del Dique da un paso importante en su desarrollo cultural con la inauguración del nuevo Centro Cultural Municipal, un espacio que promete convertirse en el corazón artístico de la ciudad.
+
+[IMAGE:/images/centro-cultural-fachada.jpg] // La fachada renovada del Centro Cultural Municipal mantiene elementos arquitectónicos históricos
+
+## Un Proyecto Largamente Esperado
+
+El nuevo centro cultural, ubicado en el corazón de Villa del Dique, es el resultado de años de planificación y trabajo conjunto entre el municipio y la comunidad artística local. El edificio, completamente restaurado, conserva elementos arquitectónicos históricos mientras incorpora instalaciones modernas.
+
+[IMAGE:/images/centro-cultural-interior.jpg] // El espacio principal de exposiciones cuenta con iluminación natural y sistemas de montaje versátiles
+
+## Instalaciones y Servicios
+
+- Sala principal de exposiciones
+- Auditorio para 200 personas
+- Talleres multiuso
+- Biblioteca digital
+- Cafetería cultural
+
+[IMAGE:/images/centro-cultural-auditorio.jpg] // El auditorio principal durante su inauguración
+
+## Programación Inaugural
+
+La agenda de apertura incluye exposiciones de artistas locales, conciertos de música clásica y popular, y talleres gratuitos para todas las edades. El objetivo es crear un espacio vivo y dinámico que refleje la rica vida cultural de Villa del Dique.
+
+## Impacto en la Comunidad
+
+Este nuevo espacio no solo enriquece la oferta cultural de la ciudad, sino que también genera nuevas oportunidades para artistas locales y impulsa el turismo cultural en la región.`,
     sections: [
       {
         type: "paragraph",
@@ -234,4 +219,7 @@ export const ARTICLES_VARIOS: Article[] = [
     `,
   },
 ]
+
+// Asegúrate de que todos los artículos en ARTICLES_VARIOS tengan la propiedad fullContent
+// Si no la tienen, puedes agregarla o dejarla como undefined
 
