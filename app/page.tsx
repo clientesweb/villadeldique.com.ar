@@ -17,6 +17,7 @@ import Preloader from "@/components/preloader"
 import AdBanner from "@/components/ad-banner"
 import AppMockup from "@/components/app-mockup"
 import SponsorSection from "@/components/sponsor-section"
+import LocalBusinessAds from "@/components/local-business-ads"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -87,6 +88,8 @@ export default function Home() {
           </section>
 
           <FeaturedArticles />
+
+          <LocalBusinessAds />
 
           <InstagramFeed />
 
