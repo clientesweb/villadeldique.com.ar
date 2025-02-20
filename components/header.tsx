@@ -3,126 +3,174 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown, Phone } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { CATEGORIES } from "@/lib/constants"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
     }
-  }, [isOpen])
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const menuVariants = {
     closed: {
       opacity: 0,
-      x: "100%",
+      y: -20,
       transition: {
-        duration: 0.3,
+        duration: 0.2,
         ease: "easeInOut",
-        staggerChildren: 0.05,
-        staggerDirection: -1,
       },
     },
     open: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.2,
         ease: "easeInOut",
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
       },
     },
   }
 
-  const itemVariants = {
-    closed: { opacity: 0, x: 20 },
-    open: { opacity: 1, x: 0 },
-  }
-
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header
+      className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-secondary shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
               alt="Villa del Dique Digital"
-              width={150}
+              width={180}
               height={60}
-              className="h-8 md:h-12 w-auto"
+              className="h-12 w-auto brightness-0 invert"
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-1">
             {CATEGORIES.map((category) => (
-              <Link
+              <div
                 key={category.slug}
-                href={`/${category.slug}`}
-                className="text-sm lg:text-base text-primary hover:text-secondary font-medium transition-colors"
+                className="relative group"
+                onMouseEnter={() => setActiveDropdown(category.slug)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {category.name}
-              </Link>
+                <Link
+                  href={`/${category.slug}`}
+                  className={`text-white hover:text-accent font-medium transition-colors px-3 py-2 rounded-md flex items-center ${
+                    pathname.startsWith(`/${category.slug}`) ? "text-accent" : ""
+                  }`}
+                >
+                  {category.name}
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                </Link>
+                <AnimatePresence>
+                  {activeDropdown === category.slug && (
+                    <motion.div
+                      initial="closed"
+                      animate="open"
+                      exit="closed"
+                      variants={menuVariants}
+                      className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 w-48"
+                    >
+                      <Link
+                        href={`/${category.slug}/subcategoria-1`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Subcategoría 1
+                      </Link>
+                      <Link
+                        href={`/${category.slug}/subcategoria-2`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Subcategoría 2
+                      </Link>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="flex flex-col items-center">
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-white border-white hover:bg-white hover:text-secondary bg-secondary/50"
+              >
+                Iniciar sesión
+              </Button>
+              <span className="text-xs text-white mt-1">Próximamente</span>
+            </div>
+            <Button size="sm" className="bg-accent hover:bg-accent/90 text-primary">
+              <Phone className="mr-2 h-4 w-4" />
+              Contactar
+            </Button>
+          </div>
+
+          <Button variant="ghost" size="icon" className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="fixed inset-0 bg-primary z-50 md:hidden"
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center p-4 border-b border-white/10">
-                  <Link href="/" onClick={() => setIsOpen(false)}>
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
-                      alt="Villa del Dique Digital"
-                      width={150}
-                      height={60}
-                      className="h-8 w-auto"
-                    />
-                  </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="text-white">
-                    <X className="h-6 w-6" />
-                  </Button>
-                </div>
-                <nav className="flex flex-col space-y-4 p-4 overflow-y-auto">
-                  {CATEGORIES.map((category) => (
-                    <motion.div key={category.slug} variants={itemVariants}>
-                      <Link
-                        href={`/${category.slug}`}
-                        className="text-xl text-white hover:text-accent font-medium block py-2"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {category.name}
-                      </Link>
-                    </motion.div>
-                  ))}
-                </nav>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-secondary"
+          >
+            <nav className="container mx-auto px-4 py-4">
+              {CATEGORIES.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${category.slug}`}
+                  className={`block py-2 text-white hover:text-accent ${
+                    pathname.startsWith(`/${category.slug}`) ? "text-accent" : ""
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {category.name}
+                </Link>
+              ))}
+              <div className="mt-4 space-y-2">
+                <div className="flex flex-col items-center">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full text-white border-white hover:bg-white hover:text-secondary bg-secondary/50"
+                  >
+                    Iniciar sesión
+                  </Button>
+                  <span className="text-xs text-white mt-1">Próximamente</span>
+                </div>
+                <Button size="sm" className="w-full bg-accent hover:bg-accent/90 text-primary">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Contactar
+                </Button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
