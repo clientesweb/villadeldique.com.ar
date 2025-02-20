@@ -1,13 +1,14 @@
 interface Article {
-  id: number
-  slug: string
-  title: string
-  description: string
-  image: string
-  fullContent: string
-  category: string
-  subtitle?: string
-  importantFact?: string
+  id: number;
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  fullContent: string;
+  category: string;
+  subtitle?: string;
+  importantFact?: string;
+  author?: string;
 }
 
 export const ARTICLES_VARIOS: Article[] = [
