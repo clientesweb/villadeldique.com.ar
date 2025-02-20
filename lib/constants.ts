@@ -167,6 +167,7 @@ export const ARTICLES: Article[] = [
           "Te invitamos a ser parte de este viaje digital, donde juntos construiremos un espacio de encuentro, información y apoyo para todos los que aman Villa del Dique. **¡Bienvenidos!**",
       },
     ],
+    subtitle: "Nuestra Misión",
   },
   // Más artículos aquí...
 ]
