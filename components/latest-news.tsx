@@ -60,6 +60,8 @@ export default function LatestNews() {
                         layout="fill"
                         objectFit="cover"
                         className="transition-transform duration-300 group-hover:scale-105"
+                        placeholder="blur"
+                        blurDataURL="/path-to-blur-placeholder.jpg"  // Placeholder mientras se carga la imagen
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
                     </div>
@@ -102,4 +104,3 @@ export default function LatestNews() {
     </section>
   )
 }
-
