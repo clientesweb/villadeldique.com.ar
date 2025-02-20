@@ -46,8 +46,8 @@ export const ARTICLES: Article[] = [
     slug: "bienvenidos-villa-del-dique-digital",
     title: "Bienvenidos a Villa del Dique Digital",
     description: "Tu nueva fuente de información sobre todo lo que sucede en Villa del Dique",
-    image: "hero-villa-del-dique-lago.jpg",
-    fullContent: "Villa del Dique es un lugar lleno de historia, naturaleza y cultura. Ahora, con este nuevo proyecto digital, queremos acercarte aún más a la esencia de nuestra localidad. **Villa del Dique Digital** nace con la misión de informar, destacar y conectar a la comunidad con noticias positivas, turismo, gastronomía, negocios locales y cultura."
+    image: "/hero-villa-del-dique-lago.jpg",
+    fullContent: "Villa del Dique es un lugar lleno de historia, naturaleza y cultura. Ahora, con este nuevo proyecto digital, queremos acercarte aún más a la esencia de nuestra localidad. **Villa del Dique Digital** nace con la misión de informar, destacar y conectar a la comunidad con noticias positivas, turismo, gastronomía, negocios locales y cultura.",
 
 **Nuestra Misión**
 
