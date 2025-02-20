@@ -16,7 +16,7 @@ export default function Footer() {
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     window.open(
-      `https://wa.me/593987167782?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`,
+      `https://wa.me/543546501537?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`,
       "_blank",
     )
   }
