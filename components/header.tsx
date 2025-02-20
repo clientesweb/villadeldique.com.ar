@@ -53,7 +53,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
+              src="/logo-villa-del-dique-digital.png"
               alt="Villa del Dique Digital"
               width={180}
               height={60}
