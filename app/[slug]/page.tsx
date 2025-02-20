@@ -21,10 +21,16 @@ interface Article {
   title: string
   description: string
   image: string
-  fullContent: string
   category: string
+  date: string
+  author: string
+  sections: {
+    type: "paragraph" | "image" | "subtitle" | "list"
+    content: string
+    items?: string[]
+    caption?: string
+  }[]
   subtitle?: string
-  importantFact?: string
 }
 
 export default function DynamicPage({ params }: { params: { slug: string } }) {
@@ -80,7 +86,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
     return allArticles.filter((a) => a.slug !== article!.slug && a.category === article!.category).slice(0, 3)
   }, [article, isArticle])
 
-  if (isArticle) {
+  if (isArticle && article) {
     const articleUrl = `https://villadeldique.com.ar/${article.slug}`
 
     return (
@@ -110,9 +116,9 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                 >
                   <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">{article.title}</h1>
                   <div className="flex items-center gap-4 text-sm text-white">
-                    <span>Por Mercedes Felcaro</span>
+                    <span>Por {article.author}</span>
                     <span>•</span>
-                    <span>5 min de lectura</span>
+                    <span>{article.date}</span>
                   </div>
                 </motion.div>
               </div>
@@ -175,65 +181,91 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
 
               <div className="prose prose-lg max-w-none">
                 {article.subtitle && <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-800">{article.subtitle}</h2>}
-                {article.fullContent ? (
-                  <div className="space-y-6">
-                    {article.fullContent.split("\n\n").map((paragraph, index) => (
-                      <div key={index}>
-                        {paragraph.startsWith("##") ? (
-                          <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-800">
-                            {paragraph.replace("##", "").trim()}
-                          </h2>
-                        ) : paragraph.startsWith("#") ? (
-                          <h3 className="text-xl font-semibold mt-6 mb-3 text-gray-700">
-                            {paragraph.replace("#", "").trim()}
-                          </h3>
-                        ) : (
-                          <div className="text-gray-600 leading-relaxed">{processContent(paragraph)}</div>
-                        )}
-                        {index === 4 && article.importantFact && (
-                          <blockquote className="border-l-4 border-secondary pl-4 italic my-6 text-gray-700">
-                            Dato importante: {article.importantFact}
-                          </blockquote>
-                        )}
-                      </div>
+                {article.sections.map((section, index) => {
+                  switch (section.type) {
+                    case "paragraph":
+                      return (
+                        <p
+                          key={index}
+                          dangerouslySetInnerHTML={{
+                            __html: section.content.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
+                          }}
+                        />
+                      )
+                    case "image":
+                      return (
+                        <figure key={index} className="my-8">
+                          <Image
+                            src={section.content || "/placeholder.svg"}
+                            alt={section.caption || "Imagen del artículo"}
+                            width={800}
+                            height={400}
+                            layout="responsive"
+                            className="rounded-lg"
+                          />
+                          {section.caption && (
+                            <figcaption className="text-center text-sm text-gray-500 mt-2">
+                              {section.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )
+                    case "subtitle":
+                      return (
+                        <h2 key={index} className="text-2xl font-bold mt-8 mb-4 text-gray-800">
+                          {section.content}
+                        </h2>
+                      )
+                    case "list":
+                      return (
+                        <ul key={index}>
+                          {section.items?.map((item, itemIndex) => (
+                            <li
+                              key={itemIndex}
+                              dangerouslySetInnerHTML={{
+                                __html: item.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
+                              }}
+                            />
+                          ))}
+                        </ul>
+                      )
+                    default:
+                      return null
+                  }
+                })}
+              </div>
+
+              {suggestedArticles.length > 0 && (
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold mb-6">Artículos relacionados</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {suggestedArticles.map((suggestedArticle) => (
+                      <Card
+                        key={suggestedArticle.id}
+                        className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                      >
+                        <Image
+                          src={suggestedArticle.image || "/placeholder.svg"}
+                          alt={suggestedArticle.title}
+                          width={400}
+                          height={200}
+                          className="w-full h-48 object-cover"
+                        />
+                        <CardContent className="p-4">
+                          <h3 className="font-bold text-lg mb-2">{suggestedArticle.title}</h3>
+                          <p className="text-sm text-gray-600 mb-4">{suggestedArticle.description}</p>
+                          <Link
+                            href={`/${suggestedArticle.slug}`}
+                            className="text-secondary hover:text-secondary/90 font-medium"
+                          >
+                            Leer más →
+                          </Link>
+                        </CardContent>
+                      </Card>
                     ))}
                   </div>
-                ) : (
-                  <p>No se ha encontrado contenido detallado para este artículo.</p>
-                )}
-
-                {suggestedArticles.length > 0 && (
-                  <div className="mt-12">
-                    <h2 className="text-2xl font-bold mb-6">Artículos relacionados</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {suggestedArticles.map((suggestedArticle) => (
-                        <Card
-                          key={suggestedArticle.id}
-                          className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                        >
-                          <Image
-                            src={suggestedArticle.image || "/placeholder.svg"}
-                            alt={suggestedArticle.title}
-                            width={400}
-                            height={200}
-                            className="w-full h-48 object-cover"
-                          />
-                          <CardContent className="p-4">
-                            <h3 className="font-bold text-lg mb-2">{suggestedArticle.title}</h3>
-                            <p className="text-sm text-gray-600 mb-4">{suggestedArticle.description}</p>
-                            <Link
-                              href={`/${suggestedArticle.slug}`}
-                              className="text-secondary hover:text-secondary/90 font-medium"
-                            >
-                              Leer más →
-                            </Link>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </article>
@@ -316,7 +348,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                     <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                       <span className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
-                        {new Date().toLocaleDateString()}
+                        {article.date}
                       </span>
                       <span className="flex items-center">
                         <Clock className="w-4 h-4 mr-1" />5 min read
