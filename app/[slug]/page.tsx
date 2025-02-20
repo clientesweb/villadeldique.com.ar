@@ -22,7 +22,7 @@ interface Article {
   description: string
   image: string
   category: string
-  date: string
+  date: string // Add this line
   author: string
   sections: {
     type: "paragraph" | "image" | "subtitle" | "list"
@@ -36,7 +36,8 @@ interface Article {
 export default function DynamicPage({ params }: { params: { slug: string } }) {
   const [email, setEmail] = useState("")
   const category = CATEGORIES.find((cat) => cat.slug === params.slug)
-  const article = ARTICLES.find((a) => a.slug === params.slug) || ARTICLES_VARIOS.find((a) => a.slug === params.slug)
+  const article: Article | undefined =
+    ARTICLES.find((a) => a.slug === params.slug) || ARTICLES_VARIOS.find((a) => a.slug === params.slug)
 
   if (!category && !article) {
     notFound()
