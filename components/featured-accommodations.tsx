@@ -88,7 +88,7 @@ export default function FeaturedAccommodations() {
                   className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl"
                 >
                   <div className="md:flex">
-                    <div className="md:w-2/5">
+                    <div className="md:w-2/5 relative">
                       <div className="relative h-64 md:h-full">
                         <Image
                           src={accommodation.image || "/placeholder.svg"}
@@ -97,6 +97,28 @@ export default function FeaturedAccommodations() {
                           objectFit="cover"
                           className="transition-transform duration-300 hover:scale-105"
                         />
+                      </div>
+                      <div className="absolute inset-y-0 left-0 flex items-center">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="ml-2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
+                          onClick={prevAccommodation}
+                          aria-label="Alojamiento anterior"
+                        >
+                          <ChevronLeft className="h-6 w-6" />
+                        </Button>
+                      </div>
+                      <div className="absolute inset-y-0 right-0 flex items-center">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="mr-2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
+                          onClick={nextAccommodation}
+                          aria-label="Siguiente alojamiento"
+                        >
+                          <ChevronRight className="h-6 w-6" />
+                        </Button>
                       </div>
                     </div>
                     <div className="md:w-3/5 p-6 md:p-8">
@@ -139,23 +161,6 @@ export default function FeaturedAccommodations() {
               </div>
             ))}
           </motion.div>
-
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
-            onClick={prevAccommodation}
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
-            onClick={nextAccommodation}
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
         </div>
       </div>
     </section>
