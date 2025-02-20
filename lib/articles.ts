@@ -1,14 +1,16 @@
 interface Article {
-  id: number;
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  fullContent: string;
-  category: string;
-  subtitle?: string;
-  importantFact?: string;
-  author?: string;
+  id: number
+  slug: string
+  title: string
+  description: string
+  image: string
+  fullContent: string
+  category: string
+  subtitle?: string
+  importantFact?: string
+  date?: string
+  author?: string
+  sections?: { type: string; content: string }[]
 }
 
 export const ARTICLES_VARIOS: Article[] = [
@@ -51,6 +53,15 @@ export const ARTICLES_VARIOS: Article[] = [
 
     Este nuevo espacio no solo enriquece la oferta cultural de la ciudad, sino que también genera nuevas oportunidades para artistas locales y impulsa el turismo cultural en la región.
     `,
+    date: "2024-03-01",
+    author: "María González",
+    sections: [
+      {
+        type: "paragraph",
+        content:
+          "Villa del Dique da un paso importante en su desarrollo cultural con la inauguración del nuevo Centro Cultural Municipal, un espacio que promete convertirse en el corazón artístico de la ciudad.",
+      },
+    ],
   },
   {
     id: 2,
