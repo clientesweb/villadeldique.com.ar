@@ -80,25 +80,19 @@ export const ARTICLES: Article[] = [
         content: "¿Qué Encontrarás Aquí?",
       },
       {
-        type: "list",
-        content: "Secciones principales:",
-        items: [
+        type: "paragraph",
+        content:
           "**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.",
-          "**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.",
-          "**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.",
-          "**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.",
-          "**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.",
-        ],
       },
       {
         type: "image",
-        content: "/images/centro-cultural-fachada.jpg",
-        caption: "Vista panorámica del embalse al atardecer",
+        content: "/images/noticias-positivas.jpg",
+        caption: "Celebración comunitaria en Villa del Dique",
       },
       {
         type: "paragraph",
         content:
-          "**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.",
+          "**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.",
       },
       {
         type: "image",
@@ -108,7 +102,7 @@ export const ARTICLES: Article[] = [
       {
         type: "paragraph",
         content:
-          "**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.",
+          "**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.",
       },
       {
         type: "image",
@@ -118,7 +112,7 @@ export const ARTICLES: Article[] = [
       {
         type: "paragraph",
         content:
-          "**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.",
+          "**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.",
       },
       {
         type: "image",
@@ -128,17 +122,12 @@ export const ARTICLES: Article[] = [
       {
         type: "paragraph",
         content:
-          "**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.",
+          "**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.",
       },
       {
         type: "image",
         content: "/images/evento-cultural.jpg",
         caption: "Evento cultural con música y danzas tradicionales",
-      },
-      {
-        type: "paragraph",
-        content:
-          "**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.",
       },
       {
         type: "subtitle",
@@ -166,7 +155,7 @@ export const ARTICLES: Article[] = [
     ],
     subtitle: "Nuestra Misión",
   },
-  // Más artículos aquí...
+  // ... (otros artículos si los hay)
 ]
 
 export const SITE_CONFIG = {
