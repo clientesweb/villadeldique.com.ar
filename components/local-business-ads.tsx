@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { MapPin, Phone, Globe } from "lucide-react"
+import { MapPin, Phone, Globe, ArrowRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const ads = [
@@ -65,9 +65,24 @@ export default function LocalBusinessAds() {
   }, [])
 
   return (
-    <section className="py-16 bg-gradient-to-r from-primary/10 to-secondary/10">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Descubre Negocios Locales</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Descubre Negocios
+            <span className="block text-accent mt-2">Locales</span>
+          </h2>
+          <p className="text-lg text-gray-300">
+            Explora y apoya a los mejores establecimientos de Villa del Dique. Desde cafeterías con vistas
+            impresionantes hasta tiendas de artesanías únicas.
+          </p>
+        </motion.div>
+
         <div className="relative max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -76,7 +91,7 @@ export default function LocalBusinessAds() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-lg shadow-xl overflow-hidden"
+              className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl"
             >
               <div className="md:flex">
                 <div className="md:w-1/2">
@@ -86,39 +101,44 @@ export default function LocalBusinessAds() {
                       alt={ads[currentIndex].name}
                       layout="fill"
                       objectFit="cover"
+                      className="transition-transform duration-300 hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-2xl font-bold text-white mb-2">{ads[currentIndex].name}</h3>
+                      <p className="text-sm text-accent font-semibold">{ads[currentIndex].type}</p>
+                    </div>
                   </div>
                 </div>
                 <div className="md:w-1/2 p-6 md:p-8">
-                  <h3 className="text-2xl font-bold mb-2">{ads[currentIndex].name}</h3>
-                  <p className="text-sm text-secondary mb-4">{ads[currentIndex].type}</p>
-                  <p className="mb-6">{ads[currentIndex].description}</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 mr-2 text-secondary" />
+                  <p className="text-gray-300 mb-6">{ads[currentIndex].description}</p>
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center text-gray-300">
+                      <MapPin className="w-5 h-5 mr-2 text-accent" />
                       <span className="text-sm">{ads[currentIndex].address}</span>
                     </div>
-                    <div className="flex items-center">
-                      <Phone className="w-5 h-5 mr-2 text-secondary" />
+                    <div className="flex items-center text-gray-300">
+                      <Phone className="w-5 h-5 mr-2 text-accent" />
                       <span className="text-sm">{ads[currentIndex].phone}</span>
                     </div>
-                    <div className="flex items-center">
-                      <Globe className="w-5 h-5 mr-2 text-secondary" />
+                    <div className="flex items-center text-gray-300">
+                      <Globe className="w-5 h-5 mr-2 text-accent" />
                       <a
                         href={ads[currentIndex].website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-secondary hover:underline"
+                        className="text-sm text-accent hover:underline"
                       >
                         {ads[currentIndex].website}
                       </a>
                     </div>
                   </div>
                   <Button
-                    className="mt-6 bg-secondary hover:bg-secondary/90 text-white"
+                    className="w-full bg-accent hover:bg-accent/90 text-primary transition-all duration-300 group"
                     onClick={() => window.open(ads[currentIndex].website, "_blank")}
                   >
                     Visitar Sitio Web
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
               </div>
@@ -126,9 +146,14 @@ export default function LocalBusinessAds() {
           </AnimatePresence>
           <div className="flex justify-center mt-4">
             {ads.map((_, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`w-3 h-3 rounded-full mx-1 ${index === currentIndex ? "bg-secondary" : "bg-gray-300"}`}
+                className={`w-3 h-3 rounded-full mx-1 cursor-pointer ${
+                  index === currentIndex ? "bg-accent" : "bg-gray-400"
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
               />
             ))}
           </div>
