@@ -80,6 +80,17 @@ export const ARTICLES: Article[] = [
         content: "¿Qué Encontrarás Aquí?",
       },
       {
+        type: "list",
+        content: "Secciones principales:",
+        items: [
+          "**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.",
+          "**Turismo y Naturaleza:** Recorremos juntos los rincones más bellos de Villa del Dique, desde el embalse hasta los senderos naturales.",
+          "**Gastronomía Local:** Descubrimos los sabores únicos de nuestra zona, recomendando restaurantes, recetas y experiencias gastronómicas.",
+          "**Negocios y Emprendimientos:** Damos visibilidad a los comercios y proyectos que hacen crecer nuestra localidad.",
+          "**Cultura y Tradiciones:** Celebramos nuestra identidad a través de eventos, historia y manifestaciones artísticas.",
+        ],
+      },
+      {
         type: "paragraph",
         content:
           "**Noticias Positivas:** Historias que destacan el crecimiento, el esfuerzo y los logros de nuestra comunidad.",
@@ -155,7 +166,7 @@ export const ARTICLES: Article[] = [
     ],
     subtitle: "Nuestra Misión",
   },
-  // ... (otros artículos si los hay)
+  // Más artículos aquí...
 ]
 
 export const SITE_CONFIG = {
