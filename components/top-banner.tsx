@@ -21,7 +21,7 @@ export default function TopBanner() {
   }, [])
 
   return (
-    <div className="bg-primary text-white py-3">
+    <div className="bg-primary text-white py-2 fixed top-0 left-0 right-0 z-50 h-10">
       <div className="container mx-auto text-center flex items-center justify-center">
         <ArrowRight className="mr-2 h-4 w-4" />
         <p className="text-sm font-medium animate-fade-in">{announcements[currentIndex]}</p>
