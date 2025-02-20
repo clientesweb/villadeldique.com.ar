@@ -91,7 +91,7 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
             <div className="container mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">{article.title}</h1>
               <div className="flex items-center gap-4 text-sm text-white">
-                <span>Por Janneth Aguirre</span>
+                <span>Por Mercedes Felcaro</span>
                 <span>•</span>
                 <span>5 min de lectura</span>
               </div>
