@@ -1,4 +1,4 @@
-import type { Article } from "./constants"
+import type { Article } from "./constants";
 
 export const ARTICLES_VARIOS: Article[] = [
   {
@@ -218,8 +218,4 @@ Este nuevo espacio no solo enriquece la oferta cultural de la ciudad, sino que t
     - Tecnología y servicios digitales
     `,
   },
-]
-
-// Asegúrate de que todos los artículos en ARTICLES_VARIOS tengan la propiedad fullContent
-// Si no la tienen, puedes agregarla o dejarla como undefined
-
+];
