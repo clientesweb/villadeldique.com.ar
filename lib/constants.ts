@@ -2,6 +2,7 @@ interface ArticleSection {
   type: "paragraph" | "image" | "subtitle" | "list"
   content: string
   items?: string[]
+  caption?: string
 }
 
 interface Article {
@@ -14,6 +15,7 @@ interface Article {
   date: string
   author: string
   sections: ArticleSection[]
+  subtitle?: string // Agregamos esta línea
 }
 
 export const BRAND_COLORS = {
