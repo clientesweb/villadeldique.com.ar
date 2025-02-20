@@ -15,6 +15,7 @@ import { ARTICLES_VARIOS } from "@/lib/articles"
 import { notFound } from "next/navigation"
 import { motion } from "framer-motion"
 
+// Define a comprehensive Article type that includes all necessary properties
 interface Article {
   id: number
   slug: string
@@ -22,7 +23,7 @@ interface Article {
   description: string
   image: string
   category: string
-  date: string // Add this line
+  date: string
   author: string
   sections: {
     type: "paragraph" | "image" | "subtitle" | "list"
@@ -36,8 +37,11 @@ interface Article {
 export default function DynamicPage({ params }: { params: { slug: string } }) {
   const [email, setEmail] = useState("")
   const category = CATEGORIES.find((cat) => cat.slug === params.slug)
+
+  // Ensure that both ARTICLES and ARTICLES_VARIOS conform to the Article type
   const article: Article | undefined =
-    ARTICLES.find((a) => a.slug === params.slug) || ARTICLES_VARIOS.find((a) => a.slug === params.slug)
+    (ARTICLES as Article[]).find((a) => a.slug === params.slug) ||
+    (ARTICLES_VARIOS as Article[]).find((a) => a.slug === params.slug)
 
   if (!category && !article) {
     notFound()
@@ -83,7 +87,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
 
   const suggestedArticles = useMemo(() => {
     if (!isArticle) return []
-    const allArticles = [...ARTICLES, ...ARTICLES_VARIOS]
+    const allArticles = [...ARTICLES, ...ARTICLES_VARIOS] as Article[]
     return allArticles.filter((a) => a.slug !== article!.slug && a.category === article!.category).slice(0, 3)
   }, [article, isArticle])
 
@@ -116,13 +120,11 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                   transition={{ duration: 0.5 }}
                 >
                   <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">{article.title}</h1>
-                  {isArticle && article && (
-                    <div className="flex items-center gap-4 text-sm text-white">
-                      <span>Por {article.author}</span>
-                      <span>•</span>
-                      <span>{article.date}</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-4 text-sm text-white">
+                    <span>Por {article.author}</span>
+                    <span>•</span>
+                    <span>{article.date}</span>
+                  </div>
                 </motion.div>
               </div>
             </div>
@@ -279,7 +281,8 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
   }
 
   // Category page content
-  const categoryArticles = [...ARTICLES, ...ARTICLES_VARIOS].filter((article) => article.category === params.slug)
+  const categoryArticles = [...ARTICLES, ...ARTICLES_VARIOS] as Article[]
+  const filteredArticles = categoryArticles.filter((article) => article.category === params.slug)
 
   return (
     <>
@@ -294,7 +297,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
           </Link>
           <Image
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3"
-            alt={category!.name}
+            alt={category?.name || "Category"}
             layout="fill"
             objectFit="cover"
             className="opacity-30"
@@ -308,7 +311,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                {category!.name}
+                {category?.name || "Category"}
               </motion.h1>
               <motion.p
                 className="text-xl text-white/80 max-w-2xl mx-auto"
@@ -316,7 +319,8 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Explora los últimos artículos y noticias sobre {category!.name.toLowerCase()} en Villa del Dique
+                Explora los últimos artículos y noticias sobre {category?.name.toLowerCase() || "esta categoría"} en
+                Villa del Dique
               </motion.p>
             </div>
           </div>
@@ -325,7 +329,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
         <div className="container mx-auto px-4 py-12">
           {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {categoryArticles.map((article, index) => (
+            {filteredArticles.map((article, index) => (
               <motion.div
                 key={article.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -375,7 +379,7 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
           <section className="mb-16">
             <h2 className="text-3xl font-bold mb-6 text-primary">Categorías Relacionadas</h2>
             <div className="flex flex-wrap gap-4">
-              {CATEGORIES.filter((cat) => cat.slug !== category!.slug).map((relatedCategory) => (
+              {CATEGORIES.filter((cat) => cat.slug !== category?.slug).map((relatedCategory) => (
                 <Link key={relatedCategory.slug} href={`/${relatedCategory.slug}`}>
                   <Button variant="outline" className="rounded-full">
                     <Tag className="mr-2 h-4 w-4" />
@@ -391,8 +395,8 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">Suscríbete a Nuestro Boletín</h2>
               <p className="mb-6">
-                Recibe las últimas noticias y actualizaciones sobre {category!.name.toLowerCase()} en Villa del Dique
-                directamente en tu bandeja de entrada.
+                Recibe las últimas noticias y actualizaciones sobre {category?.name.toLowerCase() || "esta categoría"}{" "}
+                en Villa del Dique directamente en tu bandeja de entrada.
               </p>
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4">
                 <Input
