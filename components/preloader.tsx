@@ -165,7 +165,7 @@ export default function Preloader() {
                   }}
                 />
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
+                  src="/logo-villa-del-dique-digital.png"
                   alt="Villa del Dique Digital"
                   width={240}
                   height={100}
