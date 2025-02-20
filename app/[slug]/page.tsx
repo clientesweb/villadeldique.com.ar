@@ -32,6 +32,8 @@ interface Article {
     caption?: string
   }[]
   subtitle?: string
+  fullContent?: string
+  importantFact?: string
 }
 
 export default function DynamicPage({ params }: { params: { slug: string } }) {
