@@ -33,7 +33,7 @@ export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/villadeldiquedigital",
   twitter: "https://twitter.com/villadeldiquedigital",
   youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx",
-  tiktok: "https://www.tiktok.com/@villadeldiquedigital",
+  whatsapp: "https://wa.me/5493546123456", // Replace with the correct WhatsApp number
 }
 
 export const CONTACT_INFO = {
@@ -68,12 +68,12 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "subtitle",
-        content: "Nuestra Misión.",
+        content: "En un mundo donde la información fluye rápidamente",
       },
       {
         type: "paragraph",
         content:
-          "En un mundo donde la información fluye rápidamente, buscamos ofrecer un espacio confiable donde puedas encontrar lo mejor de Villa del Dique. Queremos ser el puente entre vecinos, emprendedores, turistas y amantes de este rincón de Córdoba, brindando contenido que inspire y sume valor a nuestra comunidad.",
+          "Buscamos ofrecer un espacio confiable donde puedas encontrar lo mejor de Villa del Dique. Queremos ser el puente entre vecinos, emprendedores, turistas y amantes de este rincón de Córdoba, brindando contenido que inspire y sume valor a nuestra comunidad.",
       },
       {
         type: "subtitle",
@@ -153,7 +153,7 @@ export const ARTICLES: Article[] = [
           "Te invitamos a ser parte de este viaje digital, donde juntos construiremos un espacio de encuentro, información y apoyo para todos los que aman Villa del Dique. **¡Bienvenidos!**",
       },
     ],
-    subtitle: "¡Continuemos avanzando!",
+    subtitle: "Bienvenidos a una Nueva Era Digital",
   },
   // ... (otros artículos si los hay)
 ]
