@@ -50,7 +50,7 @@ export default function FeaturedArticles() {
               variants={item}
               className={`${index === 0 ? "sm:col-span-2 lg:col-span-3" : ""}`}
             >
-              <Link href={`/articulo/${article.slug}`}>
+              <Link href={`/${article.slug}`}>
                 <Card className="group overflow-hidden bg-white hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                   <div className="relative">
                     {/* Imagen Principal */}
