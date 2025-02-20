@@ -20,13 +20,12 @@ export default function MagazineCover() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
+        src="/hero-villa-del-dique-lago.jpg"
         alt="Villa Del Dique"
         layout="fill"
         objectFit="cover"
-        quality={85}
+        quality={100}
         priority
-        sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80" />
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4 pt-24">
@@ -43,7 +42,6 @@ export default function MagazineCover() {
             size="lg"
             className="bg-accent hover:bg-accent/90 text-primary text-lg px-8 py-4 rounded-full transition-transform hover:scale-105"
             onClick={() => document.querySelector(content.cta.link)?.scrollIntoView({ behavior: "smooth" })}
-            loading="eager"
           >
             {content.cta.text}
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -54,4 +52,3 @@ export default function MagazineCover() {
     </div>
   )
 }
-
