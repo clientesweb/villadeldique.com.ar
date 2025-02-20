@@ -41,28 +41,39 @@ export default function FeaturedAccommodations() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % accommodations.length)
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % accommodations.length)
     }, 5000)
-    return () => clearInterval(interval)
+    return () => clearInterval(timer)
   }, [])
 
   const nextAccommodation = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % accommodations.length)
+    setCurrentIndex((prev) => (prev + 1) % accommodations.length)
   }
 
   const prevAccommodation = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + accommodations.length) % accommodations.length)
+    setCurrentIndex((prev) => (prev - 1 + accommodations.length) % accommodations.length)
   }
 
   return (
-    <section className="relative bg-gradient-to-b from-primary/5 to-white py-16 sm:py-24">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-center text-primary">Alojamientos Destacados</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Descubre los mejores lugares para hospedarte en Villa del Dique. Desde cabañas junto al lago hasta lofts con
-          vistas panorámicas, tenemos opciones para todos los gustos.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            Alojamientos
+            <span className="block text-accent mt-2">Destacados</span>
+          </h2>
+          <p className="text-lg text-gray-300">
+            Descubre los mejores lugares para hospedarte en Villa del Dique. Desde cabañas junto al lago hasta lofts con
+            vistas panorámicas.
+          </p>
+        </motion.div>
+
         <div className="relative overflow-hidden">
           <motion.div
             className="flex transition-all duration-500 ease-in-out"
@@ -70,7 +81,12 @@ export default function FeaturedAccommodations() {
           >
             {accommodations.map((accommodation) => (
               <div key={accommodation.id} className="w-full flex-shrink-0">
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl"
+                >
                   <div className="md:flex">
                     <div className="md:w-2/5">
                       <div className="relative h-64 md:h-full">
@@ -79,38 +95,39 @@ export default function FeaturedAccommodations() {
                           alt={accommodation.title}
                           layout="fill"
                           objectFit="cover"
+                          className="transition-transform duration-300 hover:scale-105"
                         />
                       </div>
                     </div>
                     <div className="md:w-3/5 p-6 md:p-8">
-                      <h3 className="text-2xl font-bold mb-2 text-primary">{accommodation.title}</h3>
+                      <h3 className="text-2xl font-bold mb-2 text-white">{accommodation.title}</h3>
                       <div className="flex items-center mb-4">
-                        <MapPin className="text-secondary w-5 h-5 mr-2" />
-                        <p className="text-gray-600">{accommodation.location}</p>
+                        <MapPin className="text-accent w-5 h-5 mr-2" />
+                        <p className="text-gray-300">{accommodation.location}</p>
                       </div>
                       <div className="flex items-center mb-4">
                         <Star className="text-accent w-5 h-5 mr-2" />
-                        <span className="font-semibold">{accommodation.rating}</span>
+                        <span className="text-white font-semibold">{accommodation.rating}</span>
                       </div>
-                      <p className="text-2xl font-bold text-secondary mb-4">{accommodation.price}</p>
+                      <p className="text-2xl font-bold text-accent mb-4">{accommodation.price}</p>
                       <div className="space-y-2 mb-6">
                         {accommodation.amenities.map((amenity, index) => (
-                          <div key={index} className="flex items-center">
-                            {index === 0 && <Users className="w-5 h-5 mr-2 text-gray-500" />}
-                            {index === 1 && <Wifi className="w-5 h-5 mr-2 text-gray-500" />}
-                            {index === 2 && <Coffee className="w-5 h-5 mr-2 text-gray-500" />}
-                            <span className="text-gray-600">{amenity}</span>
+                          <div key={index} className="flex items-center text-gray-300">
+                            {index === 0 && <Users className="w-5 h-5 mr-2 text-accent" />}
+                            {index === 1 && <Wifi className="w-5 h-5 mr-2 text-accent" />}
+                            {index === 2 && <Coffee className="w-5 h-5 mr-2 text-accent" />}
+                            <span>{amenity}</span>
                           </div>
                         ))}
                       </div>
                       <div className="flex justify-between items-center">
                         <Link href={`/alojamiento/${accommodation.id}`} passHref>
-                          <Button className="bg-primary hover:bg-primary/90 text-white">Ver Detalles</Button>
+                          <Button className="bg-accent hover:bg-accent/90 text-primary">Ver Detalles</Button>
                         </Link>
                         <Link href={`https://wa.me/593987167782`} passHref>
                           <Button
                             variant="outline"
-                            className="border-primary text-primary hover:bg-primary hover:text-white"
+                            className="border-accent text-accent hover:bg-accent hover:text-primary"
                           >
                             Reservar
                           </Button>
@@ -118,27 +135,28 @@ export default function FeaturedAccommodations() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </motion.div>
+
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
+            onClick={prevAccommodation}
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-sm"
+            onClick={nextAccommodation}
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
         </div>
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/50 hover:bg-white text-primary"
-          onClick={prevAccommodation}
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/50 hover:bg-white text-primary"
-          onClick={nextAccommodation}
-        >
-          <ChevronRight className="h-6 w-6" />
-        </Button>
       </div>
     </section>
   )
