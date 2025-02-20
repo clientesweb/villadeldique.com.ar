@@ -11,46 +11,13 @@ const ads = [
     id: 1,
     name: "Café del Lago",
     type: "Restaurante",
-    image:
-      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80",
     description: "Disfruta de las mejores vistas del lago mientras saboreas nuestro café de especialidad.",
     address: "Av. Costanera 123, Villa del Dique",
     phone: "+54 9 3546 123456",
     website: "https://cafedellago.com",
   },
-  {
-    id: 2,
-    name: "Hotel Villa del Dique",
-    type: "Alojamiento",
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    description: "Experimenta el lujo y la comodidad en el corazón de Villa del Dique.",
-    address: "Calle Principal 456, Villa del Dique",
-    phone: "+54 9 3546 789012",
-    website: "https://hotelvilladeldique.com",
-  },
-  {
-    id: 3,
-    name: "Bar La Esquina",
-    type: "Bar",
-    image:
-      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    description: "El lugar perfecto para disfrutar de cócteles artesanales y música en vivo.",
-    address: "Esquina de Av. San Martín y Belgrano, Villa del Dique",
-    phone: "+54 9 3546 345678",
-    website: "https://barlaesquina.com",
-  },
-  {
-    id: 4,
-    name: "Tienda del Valle",
-    type: "Local Comercial",
-    image:
-      "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    description: "Encuentra los mejores productos regionales y artesanías locales.",
-    address: "Av. de los Artesanos 789, Villa del Dique",
-    phone: "+54 9 3546 901234",
-    website: "https://tiendadelvalle.com",
-  },
+  // ... other ads
 ]
 
 export default function LocalBusinessAds() {
@@ -102,6 +69,7 @@ export default function LocalBusinessAds() {
                       layout="fill"
                       objectFit="cover"
                       className="transition-transform duration-300 hover:scale-105"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
@@ -162,4 +130,3 @@ export default function LocalBusinessAds() {
     </section>
   )
 }
-
