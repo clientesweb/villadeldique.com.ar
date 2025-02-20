@@ -115,11 +115,13 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
                   transition={{ duration: 0.5 }}
                 >
                   <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">{article.title}</h1>
-                  <div className="flex items-center gap-4 text-sm text-white">
-                    <span>Por {article.author}</span>
-                    <span>•</span>
-                    <span>{article.date}</span>
-                  </div>
+                  {isArticle && article && (
+                    <div className="flex items-center gap-4 text-sm text-white">
+                      <span>Por {article.author}</span>
+                      <span>•</span>
+                      <span>{article.date}</span>
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </div>
