@@ -1,11 +1,11 @@
-interface ArticleSection {
+export interface ArticleSection {
   type: "paragraph" | "image" | "subtitle" | "list"
   content: string
   items?: string[]
   caption?: string
 }
 
-interface Article {
+export interface Article {
   id: number
   slug: string
   title: string
@@ -14,13 +14,10 @@ interface Article {
   category: string
   date: string
   author: string
-  sections: {
-    type: "paragraph" | "image" | "subtitle" | "list"
-    content: string
-    items?: string[]
-    caption?: string
-  }[]
+  sections: ArticleSection[]
   subtitle?: string
+  fullContent?: string
+  importantFact?: string
 }
 
 export const BRAND_COLORS = {
