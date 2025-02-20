@@ -15,7 +15,6 @@ import {
   Bell,
   Home,
   Newspaper,
-  MapPinned,
   CalendarDays,
   BellIcon,
   Smartphone,
@@ -82,7 +81,7 @@ const features = [
     description: "Mantente informado sobre todo lo que sucede",
   },
   {
-    icon: MapPinned,
+    icon: MapPin,
     title: "Guía Turística",
     description: "Descubre los mejores lugares para visitar",
   },
