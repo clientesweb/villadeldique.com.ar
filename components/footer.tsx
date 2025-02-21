@@ -16,7 +16,7 @@ export default function Footer() {
   const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     window.open(
-      `https://wa.me/543546501537?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`,
+      `https://wa.me/593987167782?text=Hola, me gustaría suscribirme al boletín. Mi número es ${phone}`,
       "_blank",
     )
   }
@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center md:items-start">
             <Image
-              src="/logo-villa-del-dique-digital.png"
+              src="/images/logo-villa-del-dique-digital.webp"
               alt="Villa del Dique Digital"
               width={150}
               height={60}
