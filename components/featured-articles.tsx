@@ -4,37 +4,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { ARTICLES } from "@/lib/constants"
-import { motion } from "framer-motion"
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react"
 
 export default function FeaturedArticles() {
   const featuredArticles = ARTICLES.slice(0, 5)
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-12"
-        >
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             Artículos
             <span className="block text-accent mt-2">Destacados</span>
@@ -42,22 +20,11 @@ export default function FeaturedArticles() {
           <p className="text-lg text-gray-300">
             Descubre las últimas novedades y análisis del mercado inmobiliario en Villa del Dique
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredArticles.map((article, index) => (
-            <motion.div
-              key={article.id}
-              variants={item}
-              className={`${index === 0 ? "sm:col-span-2 lg:col-span-3" : ""}`}
-              layout
-            >
+            <div key={article.id} className={`${index === 0 ? "sm:col-span-2 lg:col-span-3" : ""}`}>
               <Link href={`/articulo/${article.slug}`}>
                 <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-white/10 backdrop-blur-md h-full">
                   <div className="relative">
@@ -105,9 +72,9 @@ export default function FeaturedArticles() {
                   </CardContent>
                 </Card>
               </Link>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
