@@ -11,7 +11,7 @@ const accommodations = [
   {
     id: 1,
     title: "Cabaña del Lago",
-    image: "/images/accommodations/cabana-del-lago.webp",
+    image: "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=1600",
     price: "Desde $15.000 por noche",
     location: "Orilla del Lago, Villa del Dique",
     rating: 4.9,
@@ -20,7 +20,7 @@ const accommodations = [
   {
     id: 2,
     title: "Posada del Sol",
-    image: "/images/accommodations/posada-del-sol.webp",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1600",
     price: "Desde $12.000 por noche",
     location: "Centro de Villa del Dique",
     rating: 4.7,
@@ -29,7 +29,7 @@ const accommodations = [
   {
     id: 3,
     title: "Loft Montaña",
-    image: "/images/accommodations/loft-montana.webp",
+    image: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&q=80&w=1600",
     price: "Desde $18.000 por noche",
     location: "Sierras de Villa del Dique",
     rating: 4.8,
