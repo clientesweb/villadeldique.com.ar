@@ -8,7 +8,7 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
-    optimizeCss: true,
+    optimizeCss: true, // This enables critters
     optimizePackageImports: ["lucide-react"],
   },
   reactStrictMode: true,
@@ -44,6 +44,19 @@ const nextConfig = {
         ],
       },
     ]
+  },
+  // Ensure critters is properly handled
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Enable CSS optimization only in production and client-side
+      config.optimization.splitChunks.cacheGroups.styles = {
+        name: "styles",
+        test: /\.(css|scss)$/,
+        chunks: "all",
+        enforce: true,
+      }
+    }
+    return config
   },
 }
 
