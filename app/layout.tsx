@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   description:
     "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
-  metadataBase: new URL("https://villadeldique.netlify.app"),
+  metadataBase: new URL("https://www.villadeldique.com.ar"),
   applicationName: "Villa del Dique Digital",
   authors: [{ name: "Duality Domain" }],
   keywords: ["Villa del Dique", "noticias", "turismo", "cultura", "negocios", "Córdoba", "Argentina"],
