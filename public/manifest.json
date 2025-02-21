@@ -1,11 +1,11 @@
 {
-  "name": "Janneth Aguirre Magazine",
-  "short_name": "JA Magazine",
-  "description": "Tu revista líder en bienes raíces internacionales",
+  "name": "Villa del Dique Digital",
+  "short_name": "Villa del Dique",
+  "description": "Tu portal digital para noticias y turismo en Villa del Dique",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#FF0000",
+  "theme_color": "#0A0F2C",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -110,20 +110,20 @@
   "related_applications": [],
   "shortcuts": [
     {
-      "name": "Últimos Artículos",
-      "short_name": "Artículos",
-      "description": "Ver los últimos artículos publicados",
-      "url": "/articulos",
+      "name": "Últimas Noticias",
+      "short_name": "Noticias",
+      "description": "Ver las últimas noticias de Villa del Dique",
+      "url": "/noticias",
       "icons": [{ "src": "/android-icon-192x192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Categorías",
-      "short_name": "Categorías",
-      "description": "Explorar artículos por categoría",
-      "url": "/categorias",
+      "name": "Eventos",
+      "short_name": "Eventos",
+      "description": "Descubre los próximos eventos en Villa del Dique",
+      "url": "/eventos",
       "icons": [{ "src": "/android-icon-192x192.png", "sizes": "192x192" }]
     }
   ],
-  "categories": ["news", "magazines", "real estate"]
+  "categories": ["news", "travel", "local"]
 }
 
