@@ -48,6 +48,8 @@ export default function SEO({ title, description, canonicalUrl, ogImage, ogType 
 
       {/* Theme Color */}
       <meta name="theme-color" content="#0A0F2C" />
+      <meta name="msapplication-TileColor" content="#0A0F2C" />
+      <meta name="msapplication-config" content="/browserconfig.xml" />
 
       {/* Additional SEO */}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
