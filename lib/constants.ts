@@ -43,11 +43,51 @@ export const CONTACT_INFO = {
 }
 
 export const CATEGORIES = [
-  { name: "Noticias", slug: "noticias" },
-  { name: "Turismo", slug: "turismo" },
-  { name: "Gastronomía", slug: "gastronomia" },
-  { name: "Cultura", slug: "cultura" },
-  { name: "Negocios", slug: "negocios" },
+  {
+    name: "Noticias",
+    slug: "noticias",
+    description: "Mantente al día con las últimas noticias y acontecimientos de Villa del Dique.",
+    metaTitle: "Noticias de Villa del Dique | Últimos Acontecimientos",
+    metaDescription:
+      "Descubre las últimas noticias y eventos de Villa del Dique. Mantente informado sobre la actualidad local, eventos culturales y más.",
+    ogImage: "/images/og-noticias.jpg",
+  },
+  {
+    name: "Turismo",
+    slug: "turismo",
+    description: "Explora los mejores lugares turísticos y actividades en Villa del Dique.",
+    metaTitle: "Turismo en Villa del Dique | Guía de Atracciones y Actividades",
+    metaDescription:
+      "Descubre los mejores lugares para visitar en Villa del Dique. Guía completa de atracciones turísticas, actividades y experiencias únicas.",
+    ogImage: "/images/og-turismo.jpg",
+  },
+  {
+    name: "Gastronomía",
+    slug: "gastronomia",
+    description: "Descubre la rica oferta culinaria y los mejores restaurantes de Villa del Dique.",
+    metaTitle: "Gastronomía en Villa del Dique | Sabores Locales y Restaurantes",
+    metaDescription:
+      "Explora la escena gastronómica de Villa del Dique. Encuentra los mejores restaurantes, platos típicos y experiencias culinarias únicas.",
+    ogImage: "/images/og-gastronomia.jpg",
+  },
+  {
+    name: "Cultura",
+    slug: "cultura",
+    description: "Sumérgete en la rica cultura y tradiciones de Villa del Dique.",
+    metaTitle: "Cultura en Villa del Dique | Tradiciones y Eventos Culturales",
+    metaDescription:
+      "Descubre la vibrante escena cultural de Villa del Dique. Eventos artísticos, festivales, historia local y más.",
+    ogImage: "/images/og-cultura.jpg",
+  },
+  {
+    name: "Negocios",
+    slug: "negocios",
+    description: "Información sobre la economía local y oportunidades de negocios en Villa del Dique.",
+    metaTitle: "Negocios en Villa del Dique | Oportunidades y Economía Local",
+    metaDescription:
+      "Explora el panorama empresarial de Villa del Dique. Oportunidades de inversión, emprendimientos locales y desarrollo económico.",
+    ogImage: "/images/og-negocios.jpg",
+  },
 ]
 
 export const ARTICLES: Article[] = [
