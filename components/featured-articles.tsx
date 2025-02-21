@@ -60,7 +60,7 @@ export default function FeaturedArticles() {
                       <div className="relative">
                         <div className="relative h-48 sm:h-64 md:h-72 lg:h-80">
                           <Image
-                            src={article.image || "/placeholder.svg"}
+                            src={`/images/articles/${article.slug}.webp`}
                             alt={article.title}
                             layout="fill"
                             objectFit="cover"
