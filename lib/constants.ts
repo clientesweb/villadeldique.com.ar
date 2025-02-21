@@ -68,7 +68,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "subtitle",
-        content: "En un mundo donde la información fluye rápidamente",
+        content: "En un mundo donde la información fluye r��pidamente",
       },
       {
         type: "paragraph",
