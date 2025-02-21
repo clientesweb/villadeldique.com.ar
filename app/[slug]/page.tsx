@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useMemo } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -14,6 +13,7 @@ import { CATEGORIES, ARTICLES } from "@/lib/constants"
 import { ARTICLES_VARIOS } from "@/lib/articles"
 import { notFound } from "next/navigation"
 import { motion } from "framer-motion"
+import SEO from "@/components/seo"
 
 // Define a comprehensive Article type that includes all necessary properties
 interface Article {
@@ -98,6 +98,12 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
 
     return (
       <>
+        <SEO
+          title={article.title}
+          description={article.description}
+          canonicalUrl={articleUrl}
+          ogImage={article.image}
+        />
         <article className="min-h-screen bg-gray-50">
           <div className="relative h-[70vh] bg-black">
             <Image
@@ -288,6 +294,12 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <SEO
+        title={category?.name || "Categoría"}
+        description={`Encuentra los últimos artículos y noticias sobre ${category?.name || "esta categoría"} en Villa del Dique.`}
+        canonicalUrl={`https://villadeldique.com.ar/${category?.slug}`}
+        ogImage="https://villadeldique.com.ar/og-image.jpg"
+      />
       <main className="min-h-screen bg-gradient-to-b from-primary/5 via-white to-primary/5">
         {/* Hero Section */}
         <section className="relative h-[60vh] bg-primary overflow-hidden">
@@ -422,4 +434,3 @@ export default function DynamicPage({ params }: { params: { slug: string } }) {
     </>
   )
 }
-
