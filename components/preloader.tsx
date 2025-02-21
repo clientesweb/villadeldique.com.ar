@@ -57,11 +57,17 @@ export default function Preloader() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    // Set canvas size
+    // Set canvas size with device pixel ratio for sharp rendering
     const setCanvasSize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      const dpr = window.devicePixelRatio || 1
+      const rect = canvas.getBoundingClientRect()
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      ctx.scale(dpr, dpr)
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
     }
+
     setCanvasSize()
     window.addEventListener("resize", setCanvasSize)
 
@@ -85,7 +91,7 @@ export default function Preloader() {
       time += 0.01
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Draw mountain silhouette
+      // Draw mountain silhouette with optimized path
       ctx.fillStyle = "#0A0F2C"
       ctx.beginPath()
       ctx.moveTo(0, canvas.height * 0.7)
@@ -97,13 +103,14 @@ export default function Preloader() {
       ctx.lineTo(0, canvas.height)
       ctx.fill()
 
-      // Draw lake reflection
+      // Draw lake reflection with reduced opacity
       ctx.fillStyle = "#2196F3"
-      ctx.globalAlpha = 0.3
+      ctx.globalAlpha = 0.2
       ctx.fillRect(0, canvas.height * 0.7, canvas.width, canvas.height * 0.3)
       ctx.globalAlpha = 1
 
-      // Animate particles
+      // Batch particle rendering for better performance
+      ctx.globalAlpha = 0.6
       particlesRef.current.forEach((particle) => {
         particle.y -= particle.speed
         if (particle.y < 0) {
@@ -112,7 +119,6 @@ export default function Preloader() {
         }
 
         ctx.fillStyle = particle.color
-        ctx.globalAlpha = 0.6
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
         ctx.fill()
@@ -138,10 +144,16 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress}
+          aria-label="Cargando Villa del Dique Digital"
         >
           <canvas
             ref={canvasRef}
             className="absolute inset-0 bg-gradient-to-b from-primary via-primary/90 to-secondary/30"
+            aria-hidden="true"
           />
 
           <div className="relative z-10">
@@ -165,11 +177,12 @@ export default function Preloader() {
                   }}
                 />
                 <Image
-                  src="/logo-villa-del-dique-digital.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
                   alt="Villa del Dique Digital"
                   width={240}
                   height={100}
                   className="relative z-10"
+                  priority
                 />
               </div>
 
