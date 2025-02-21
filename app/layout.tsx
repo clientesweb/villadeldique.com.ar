@@ -19,13 +19,6 @@ export const metadata: Metadata = {
   description:
     "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
   metadataBase: new URL("https://villadeldique.netlify.app"),
-  applicationName: "Villa del Dique Digital",
-  authors: [{ name: "Duality Domain" }],
-  keywords: ["Villa del Dique", "noticias", "turismo", "cultura", "negocios", "Córdoba", "Argentina"],
-  robots: "index, follow",
-  themeColor: "#0A0F2C",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
-  manifest: "/manifest.json",
 }
 
 export default function RootLayout({
@@ -35,14 +28,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${montserrat.variable} touch-pan-y`}>
-      <head />
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#0A0F2C" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={montserrat.className}>
         <LocalBusinessSchema />
-        <Toaster position="bottom-right" />
-        <main className="min-h-screen bg-background" role="main">
-          {children}
-        </main>
-        <div id="modal-root" /> {/* Portal container for modals */}
+        <Toaster />
+        <main className="min-h-screen bg-background">{children}</main>
       </body>
     </html>
   )
