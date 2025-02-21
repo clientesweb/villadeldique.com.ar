@@ -1,5 +1,5 @@
 {
-  "name": "janneth-aguirre-magazine",
+  "name": "villa-del-dique",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -20,8 +20,7 @@
     "tailwindcss-animate": "^1.0.6",
     "next-pwa": "^5.6.0",
     "framer-motion": "^10.12.16",
-    "react-hot-toast": "^2.4.1",
-    "critters": "^0.0.20"
+    "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
