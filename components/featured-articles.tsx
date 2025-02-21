@@ -10,12 +10,28 @@ import { Calendar, Clock, ArrowRight, Tag } from "lucide-react"
 export default function FeaturedArticles() {
   const featuredArticles = ARTICLES.slice(0, 5)
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  }
+
   return (
     <section className="py-16 sm:py-24 bg-gradient-to-br from-primary via-primary/95 to-secondary overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
@@ -29,21 +45,21 @@ export default function FeaturedArticles() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {featuredArticles.map((article, index) => (
             <motion.div
               key={article.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              variants={item}
               className={`${index === 0 ? "sm:col-span-2 lg:col-span-3" : ""}`}
+              layout
             >
               <Link href={`/articulo/${article.slug}`}>
-                <Card className="group overflow-hidden bg-white/10 backdrop-blur-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-white/10 backdrop-blur-md h-full">
                   <div className="relative">
                     <div className="relative h-48 sm:h-64 md:h-72 lg:h-80">
                       <Image
@@ -52,6 +68,8 @@ export default function FeaturedArticles() {
                         layout="fill"
                         objectFit="cover"
                         className="transition-transform duration-300 group-hover:scale-105"
+                        loading={index === 0 ? "eager" : "lazy"}
+                        priority={index === 0}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
                     </div>
