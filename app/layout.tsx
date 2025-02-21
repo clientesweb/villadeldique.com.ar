@@ -13,49 +13,46 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Villa del Dique Digital - Noticias, Cultura, Turismo y Negocios Locales",
+    default: "Villa del Dique Digital - Noticias, Turismo y Eventos Locales",
     template: "%s | Villa del Dique Digital",
   },
   description:
-    "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
+    "Descubre Villa del Dique con noticias actualizadas, guías turísticas, eventos locales y más. Tu portal digital para explorar lo mejor de nuestra hermosa ciudad en las sierras de Córdoba.",
   metadataBase: new URL("https://villadeldique.com.ar"),
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-icon-57x57.png", sizes: "57x57", type: "image/png" },
-      { url: "/apple-icon-60x60.png", sizes: "60x60", type: "image/png" },
-      { url: "/apple-icon-72x72.png", sizes: "72x72", type: "image/png" },
-      { url: "/apple-icon-76x76.png", sizes: "76x76", type: "image/png" },
-      { url: "/apple-icon-114x114.png", sizes: "114x114", type: "image/png" },
-      { url: "/apple-icon-120x120.png", sizes: "120x120", type: "image/png" },
-      { url: "/apple-icon-144x144.png", sizes: "144x144", type: "image/png" },
-      { url: "/apple-icon-152x152.png", sizes: "152x152", type: "image/png" },
-      { url: "/apple-icon-180x180.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "https://villadeldique.com.ar",
+    siteName: "Villa del Dique Digital",
+    images: [
       {
-        rel: "apple-touch-icon",
-        url: "/apple-touch-icon.png",
-      },
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#0A0F2C",
+        url: "https://villadeldique.com.ar/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Villa del Dique Digital",
       },
     ],
   },
-  manifest: "/manifest.json",
-  themeColor: "#0A0F2C",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Villa del Dique Digital",
+  twitter: {
+    card: "summary_large_image",
+    site: "@villadeldiquedigital",
+    creator: "@villadeldiquedigital",
   },
-  applicationName: "Villa del Dique Digital",
+  keywords: [
+    "Villa del Dique",
+    "turismo",
+    "noticias",
+    "eventos",
+    "Córdoba",
+    "Argentina",
+    "lago",
+    "sierras",
+    "alojamiento",
+    "gastronomía",
+  ],
+  authors: [{ name: "Villa del Dique Digital", url: "https://villadeldique.com.ar" }],
+  creator: "Villa del Dique Digital",
+  publisher: "Villa del Dique Digital",
   formatDetection: {
     telephone: true,
     date: true,
@@ -73,9 +70,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={montserrat.variable}>
       <head>
-        <meta name="msapplication-TileColor" content="#0A0F2C" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0A0F2C" />
+        <link rel="canonical" href="https://villadeldique.com.ar" />
       </head>
       <body className={montserrat.className}>
         <LocalBusinessSchema />
