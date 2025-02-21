@@ -102,3 +102,4 @@ export default function LatestNews() {
     </section>
   )
 }
+
