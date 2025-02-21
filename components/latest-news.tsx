@@ -58,7 +58,7 @@ export default function LatestNews() {
                       <div className="relative">
                         <div className="relative h-56 sm:h-64">
                           <Image
-                            src={article.image || "/placeholder.svg"}
+                            src={`/images/articles/${article.slug}.webp`}
                             alt={article.title}
                             layout="fill"
                             objectFit="cover"
