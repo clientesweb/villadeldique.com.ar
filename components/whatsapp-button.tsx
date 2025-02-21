@@ -49,7 +49,7 @@ export default function WhatsAppButton() {
             </button>
             <div className="flex items-start space-x-3">
               <Image
-                src="/logooficial.png"
+                src="/logo-villa-del-dique-digital.png"
                 alt="Villa del Dique Digital"
                 width={40}
                 height={40}
