@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useState } from "react"
 
 const content = {
   title: "Villa Del Dique",
@@ -18,8 +17,6 @@ const content = {
 }
 
 export default function MagazineCover() {
-  const [isLoading, setIsLoading] = useState(false)
-
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
@@ -48,21 +45,10 @@ export default function MagazineCover() {
           <Button
             size="lg"
             className="bg-accent hover:bg-accent/90 text-primary text-lg px-8 py-4 rounded-full transition-transform hover:scale-105"
-            onClick={() => {
-              setIsLoading(true)
-              document.querySelector(content.cta.link)?.scrollIntoView({ behavior: "smooth" })
-              setTimeout(() => setIsLoading(false), 1000) // Simulate loading
-            }}
-            disabled={isLoading}
+            onClick={() => document.querySelector(content.cta.link)?.scrollIntoView({ behavior: "smooth" })}
           >
-            {isLoading ? (
-              <span className="animate-spin mr-2">⏳</span>
-            ) : (
-              <>
-                {content.cta.text}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </>
-            )}
+            {content.cta.text}
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </motion.div>
       </div>
