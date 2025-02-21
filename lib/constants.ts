@@ -30,15 +30,15 @@ export const BRAND_COLORS = {
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/villadeldiquedigital",
-  instagram: "https://www.instagram.com/villadeldiquedigital",
+  instagram: "https://www.instagram.com/villadeldique.com.ar",
   twitter: "https://twitter.com/villadeldiquedigital",
   youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx",
   whatsapp: "https://wa.me/5493546123456", // Replace with the correct WhatsApp number
 }
 
 export const CONTACT_INFO = {
-  email: "info@villadeldique.com.ar",
-  phone: "+54 9 3546 123456",
+  email: "villadeldiquedigital@gmail.com",
+  phone: "+54 9 3546 501 537",
   whatsapp: "+54 9 3546 123456",
 }
 
