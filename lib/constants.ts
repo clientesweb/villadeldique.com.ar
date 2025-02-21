@@ -30,15 +30,15 @@ export const BRAND_COLORS = {
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/villadeldiquedigital",
-  instagram: "https://www.instagram.com/villadeldique.com.ar",
+  instagram: "https://www.instagram.com/villadeldiquedigital",
   twitter: "https://twitter.com/villadeldiquedigital",
   youtube: "https://www.youtube.com/channel/UCxxxxxxxxxxxxxxx",
   whatsapp: "https://wa.me/5493546123456", // Replace with the correct WhatsApp number
 }
 
 export const CONTACT_INFO = {
-  email: "villadeldiquedigital@gmail.com",
-  phone: "+54 9 3546 501 537",
+  email: "info@villadeldique.com.ar",
+  phone: "+54 9 3546 123456",
   whatsapp: "+54 9 3546 123456",
 }
 
@@ -161,8 +161,8 @@ export const ARTICLES: Article[] = [
 export const SITE_CONFIG = {
   name: "Villa del Dique Digital",
   description: "Tu portal digital para descubrir Villa del Dique",
-  url: "https://www.villadeldique.com.ar",
-  ogImage: "https://www.villadeldique.com.ar/og-image.jpg",
+  url: "https://villadeldique.com.ar",
+  ogImage: "https://villadeldique.com.ar/og-image.jpg",
   themeColor: BRAND_COLORS.primary,
   keywords: ["Villa del Dique", "noticias", "turismo", "gastronomía", "cultura", "negocios", "Córdoba", "Argentina"],
 }
