@@ -161,8 +161,8 @@ export const ARTICLES: Article[] = [
 export const SITE_CONFIG = {
   name: "Villa del Dique Digital",
   description: "Tu portal digital para descubrir Villa del Dique",
-  url: "https://villadeldique.com.ar",
-  ogImage: "https://villadeldique.com.ar/og-image.jpg",
+  url: "https://www.villadeldique.com.ar",
+  ogImage: "https://www.villadeldique.com.ar/og-image.jpg",
   themeColor: BRAND_COLORS.primary,
   keywords: ["Villa del Dique", "noticias", "turismo", "gastronomía", "cultura", "negocios", "Córdoba", "Argentina"],
 }
