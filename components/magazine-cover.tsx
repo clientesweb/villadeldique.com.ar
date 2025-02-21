@@ -20,7 +20,7 @@ export default function MagazineCover() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/images/villa-del-dique-panorama.jpg"
+        src="/hero-villa-del-dique-lago.jpg"
         alt="Villa Del Dique"
         layout="fill"
         objectFit="cover"
