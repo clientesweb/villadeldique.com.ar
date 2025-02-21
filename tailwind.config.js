@@ -17,9 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        montserrat: ["var(--font-montserrat)"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -45,10 +42,6 @@ module.exports = {
         accent: {
           DEFAULT: "rgb(var(--brand-accent))",
           foreground: "hsl(var(--accent-foreground))",
-        },
-        highlight: {
-          DEFAULT: "rgb(var(--brand-highlight))",
-          foreground: "hsl(var(--primary-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
