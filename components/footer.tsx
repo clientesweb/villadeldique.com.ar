@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col items-center md:items-start">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/villa-del-dique-digital-G5Uqb5VLONnrkYuWMo4gZebp6LtQA7.png"
+              src="logo-villa-del-dique-digital.png"
               alt="Villa del Dique Digital"
               width={150}
               height={60}
