@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 import { Toaster } from "react-hot-toast"
 import LocalBusinessSchema from "@/components/local-business-schema"
+import SEO from "@/components/seo"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -70,7 +71,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={montserrat.variable}>
       <head>
-        <link rel="canonical" href="https://villadeldique.com.ar" />
+        <SEO
+          title="Villa del Dique Digital - Noticias, Turismo y Eventos Locales"
+          description="Descubre Villa del Dique con noticias actualizadas, guías turísticas, eventos locales y más. Tu portal digital para explorar lo mejor de nuestra hermosa ciudad en las sierras de Córdoba."
+          canonicalUrl="https://villadeldique.com.ar"
+          ogImage="https://villadeldique.com.ar/og-image.jpg"
+        />
       </head>
       <body className={montserrat.className}>
         <LocalBusinessSchema />
@@ -80,4 +86,3 @@ export default function RootLayout({
     </html>
   )
 }
-
