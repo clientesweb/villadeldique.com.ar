@@ -74,8 +74,8 @@ export default function UnderConstructionPage() {
             <span className="block text-accent">Extraordinario</span>
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Villa del Dique Digital está en camino. Pronto tendrás acceso a las últimas noticias, eventos y todo lo que
-            necesitas saber sobre nuestra hermosa ciudad.
+            Villa del Dique Digital está en camino. Pronto tendrás acceso a las últimas noticias, eventos , turismo , emprendimientos locales y todo lo que
+            necesitas saber sobre nuestro hermoso pueblo.
           </p>
 
           <div className="mb-12">
