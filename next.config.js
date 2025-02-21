@@ -2,13 +2,13 @@
 const nextConfig = {
   output: "standalone",
   images: {
-    domains: ["images.unsplash.com", "hebbkx1anhila5yf.public.blob.vercel-storage.com"],
+    domains: [], // Removed Unsplash and Vercel domains
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   experimental: {
-    optimizeCss: true, // This enables critters
+    optimizeCss: true,
     optimizePackageImports: ["lucide-react"],
   },
   reactStrictMode: true,
@@ -45,10 +45,8 @@ const nextConfig = {
       },
     ]
   },
-  // Ensure critters is properly handled
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Enable CSS optimization only in production and client-side
       config.optimization.splitChunks.cacheGroups.styles = {
         name: "styles",
         test: /\.(css|scss)$/,
