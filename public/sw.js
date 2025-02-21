@@ -1,5 +1,12 @@
-const CACHE_NAME = "villa-del-dique-cache-v1"
-const urlsToCache = ["/", "/index.html", "/manifest.json", "/favicon.ico", "/logo192.png", "/logo512.png"]
+const CACHE_NAME = "vdd-digital-cache-v1"
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/favicon.ico",
+  "/android-icon-192x192.png",
+  "/apple-icon-180x180.png",
+]
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)))
@@ -38,19 +45,5 @@ self.addEventListener("activate", (event) => {
       )
     }),
   )
-})
-
-// Add offline fallback
-self.addEventListener("fetch", (event) => {
-  if (
-    event.request.mode === "navigate" ||
-    (event.request.method === "GET" && event.request.headers.get("accept").includes("text/html"))
-  ) {
-    event.respondWith(
-      fetch(event.request.url).catch((error) => {
-        return caches.match("/offline.html")
-      }),
-    )
-  }
 })
 
