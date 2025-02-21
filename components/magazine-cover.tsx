@@ -20,15 +20,13 @@ export default function MagazineCover() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <Image
-        src="/images/villa-del-dique-panorama.webp"
+        src="/images/villa-del-dique-panorama.jpg"
         alt="Villa Del Dique"
         layout="fill"
         objectFit="cover"
         quality={85}
         priority
         sizes="100vw"
-        placeholder="blur"
-        blurDataURL="/images/villa-del-dique-panorama-blur.webp"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80" />
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4 pt-24">
