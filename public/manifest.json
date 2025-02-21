@@ -1,10 +1,10 @@
 {
   "name": "Villa del Dique Digital",
-  "short_name": "Villa del Dique",
-  "description": "Tu portal digital para noticias y turismo en Villa del Dique",
+  "short_name": "VDD Digital",
+  "description": "Tu portal digital para descubrir Villa del Dique",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0A0F2C",
   "theme_color": "#0A0F2C",
   "orientation": "portrait-primary",
   "icons": [
@@ -88,21 +88,6 @@
       "src": "/apple-icon-180x180.png",
       "sizes": "180x180",
       "type": "image/png"
-    },
-    {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
     }
   ],
   "splash_pages": null,
@@ -119,11 +104,11 @@
     {
       "name": "Eventos",
       "short_name": "Eventos",
-      "description": "Descubre los próximos eventos en Villa del Dique",
+      "description": "Explorar eventos en Villa del Dique",
       "url": "/eventos",
       "icons": [{ "src": "/android-icon-192x192.png", "sizes": "192x192" }]
     }
   ],
-  "categories": ["news", "travel", "local"]
+  "categories": ["news", "local", "tourism"]
 }
 
