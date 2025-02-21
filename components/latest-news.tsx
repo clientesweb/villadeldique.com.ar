@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,14 +9,22 @@ import { motion } from "framer-motion"
 import { Calendar, Clock, Tag, ArrowRight } from "lucide-react"
 
 export default function LatestNews() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [visibleArticles, setVisibleArticles] = useState(6)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % ARTICLES_VARIOS.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  }
 
   return (
     <section
@@ -26,7 +34,8 @@ export default function LatestNews() {
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
@@ -38,59 +47,56 @@ export default function LatestNews() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr"
         >
-          {ARTICLES_VARIOS.slice(0, 6).map((article, index) => (
-            <motion.div
-              key={article.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Link href={`/${article.slug}`}>
-                <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-white/10 backdrop-blur-md">
+          {ARTICLES_VARIOS.slice(0, visibleArticles).map((article) => (
+            <motion.div key={article.id} variants={item} layout>
+              <Link href={`/${article.slug}`} className="h-full">
+                <Card className="group h-full overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 bg-white/10 backdrop-blur-md">
                   <div className="relative">
-                    <div className="relative h-56 sm:h-64">
+                    <div className="relative h-48">
                       <Image
                         src={article.image || "/placeholder.svg"}
                         alt={article.title}
                         layout="fill"
                         objectFit="cover"
                         className="transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
                     </div>
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex items-center mb-3">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/90 text-primary backdrop-blur-sm">
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="flex items-center mb-2">
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent/90 text-primary backdrop-blur-sm">
                           <Tag className="w-3 h-3 mr-1" />
                           {article.category}
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white mb-2 line-clamp-2">{article.title}</h3>
+                      <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">{article.title}</h3>
 
-                      <div className="flex items-center text-white/80 text-sm space-x-4">
+                      <div className="flex items-center text-white/80 text-xs space-x-3">
                         <span className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" />
+                          <Calendar className="w-3 h-3 mr-1" />
                           {article.date}
                         </span>
                         <span className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />5 min
+                          <Clock className="w-3 h-3 mr-1" />5 min
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <CardContent className="p-6">
-                    <p className="text-gray-300 mb-4 line-clamp-2">{article.description}</p>
-                    <div className="flex items-center text-accent font-medium group-hover:text-white transition-colors">
+                  <CardContent className="p-4">
+                    <p className="text-gray-300 text-sm mb-3 line-clamp-2">{article.description}</p>
+                    <div className="flex items-center text-accent text-sm font-medium group-hover:text-white transition-colors">
                       Leer más
-                      <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                     </div>
                   </CardContent>
                 </Card>
