@@ -6,8 +6,8 @@ export default function Hero() {
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3"
-        alt="Villa del Dique"
+        src="/hero-villa-del-dique-lago.jpg"
+        alt="Villa del Dique Lago"
         layout="fill"
         objectFit="cover"
         quality={100}
