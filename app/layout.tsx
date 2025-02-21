@@ -12,16 +12,13 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Villa del Dique Digital - Noticias, Cultura, Turismo y Negocios Locales",
-    template: "%s | Villa del Dique Digital",
-  },
+  title: "Villa del Dique Digital - Próximamente",
   description:
-    "Villa del Dique Digital es tu portal online para descubrir las últimas noticias, eventos, negocios y lugares turísticos en Villa del Dique, Córdoba.",
+    "Villa del Dique Digital está en construcción. Pronto tendrás acceso a las últimas noticias, eventos y todo lo que necesitas saber sobre nuestra hermosa ciudad.",
   metadataBase: new URL("https://www.villadeldique.com.ar"),
   applicationName: "Villa del Dique Digital",
   authors: [{ name: "Duality Domain" }],
-  keywords: ["Villa del Dique", "noticias", "turismo", "cultura", "negocios", "Córdoba", "Argentina"],
+  keywords: ["Villa del Dique", "noticias", "turismo", "cultura", "negocios", "Córdoba", "Argentina", "próximamente"],
   robots: "index, follow",
   themeColor: "#0A0F2C",
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
