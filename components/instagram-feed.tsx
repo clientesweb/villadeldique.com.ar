@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
-const INSTAGRAM_POSTS = ["C6AB9NMP_ex", "", "", ""]
+const INSTAGRAM_POSTS = ["DE8ZYSUuV34", "DE5MwjSuVi_", "DE1efOSu98a", "DExZxiLO-b3"]
 
 declare global {
   interface Window {
@@ -99,3 +99,4 @@ export default function InstagramFeed() {
     </section>
   )
 }
+
