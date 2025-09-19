@@ -1,0 +1,225 @@
+import Image from "next/image"
+import Link from "next/link"
+import type { Metadata } from "next"
+import NewsAdvertisingCarousel from "@/components/news-advertising-carousel"
+import ShareButtons from "@/components/share-buttons"
+import NewsBreadcrumbs from "@/components/news-breadcrumbs"
+
+export const metadata: Metadata = {
+  title: "ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad | Villa del Dique Digital",
+  description:
+    "La estación, un punto de referencia para quienes llegan a nuestra localidad. AM CELTA CONCESIONARIO OFICIAL DE ACA YPF invita a los alojamientos de la localidad a acercar sus datos de contacto y disponibilidad.",
+  openGraph: {
+    title: "ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad",
+    description:
+      "La estación, un punto de referencia para quienes llegan a nuestra localidad. AM CELTA CONCESIONARIO OFICIAL DE ACA YPF invita a los alojamientos de la localidad a acercar sus datos de contacto y disponibilidad.",
+    images: ["/images/portada-articulo-iniciativa-aca-ypf-am-celta.webp"],
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad",
+    description:
+      "La estación, un punto de referencia para quienes llegan a nuestra localidad. AM CELTA CONCESIONARIO OFICIAL DE ACA YPF invita a los alojamientos de la localidad a acercar sus datos de contacto y disponibilidad.",
+    images: ["/images/portada-articulo-iniciativa-aca-ypf-am-celta.webp"],
+  },
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: "ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad",
+  description:
+    "La estación, un punto de referencia para quienes llegan a nuestra localidad. AM CELTA CONCESIONARIO OFICIAL DE ACA YPF invita a los alojamientos de la localidad a acercar sus datos de contacto y disponibilidad.",
+  image: "/images/portada-articulo-iniciativa-aca-ypf-am-celta.webp",
+  datePublished: "2025-09-19",
+  dateModified: "2025-09-19",
+  author: {
+    "@type": "Organization",
+    name: "Villa del Dique Digital",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Villa del Dique Digital",
+    logo: {
+      "@type": "ImageObject",
+      url: "/favicon.png",
+    },
+  },
+}
+
+export default function AcaYpfInvitaAlojamientosPage() {
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      <div className="min-h-screen bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <NewsBreadcrumbs
+            category="Turismo"
+            title="ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad"
+          />
+
+          <article className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="relative h-96">
+              <Image
+                src="/images/portada-articulo-iniciativa-aca-ypf-am-celta.webp"
+                alt="ACA YPF Villa del Dique - Punto de referencia para visitantes"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            <div className="p-8">
+              <div className="mb-6">
+                <span className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
+                  Turismo
+                </span>
+                <h1 className="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-balance">
+                  ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad
+                </h1>
+                <div className="flex items-center text-gray-600 text-sm mb-6">
+                  <time dateTime="2025-09-19">19 de septiembre de 2025</time>
+                  <span className="mx-2">•</span>
+                  <span>Villa del Dique Digital</span>
+                </div>
+              </div>
+
+              <div className="prose prose-lg max-w-none">
+                <h2 className="font-serif text-2xl font-bold text-gray-900 mb-4">
+                  La estación, un punto de referencia para quienes llegan a nuestra localidad
+                </h2>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  El ACA YPF Villa del Dique, ubicado sobre la Ruta Nacional 5, se ha consolidado como un centro de paso
+                  y consulta permanente para los visitantes que arriban a la región. Además de ofrecer sus tradicionales
+                  servicios de combustible, tienda y cafetería, comidas, la estación se convierte en un lugar
+                  estratégico donde los turistas buscan información rápida y confiable sobre hospedajes y actividades.
+                </p>
+
+                <div className="my-8">
+                  <Image
+                    src="/images/iniciativa-aca-ypf-am-celta-articulo-1.webp"
+                    alt="Estación ACA YPF Villa del Dique - Vista completa de las instalaciones"
+                    width={800}
+                    height={600}
+                    className="rounded-lg shadow-md w-full"
+                  />
+                </div>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Con el objetivo de impulsar al turismo local y brindar una mejor atención a quienes eligen Villa del
+                  Dique, <strong>AM CELTA CONCESIONARIO OFICIAL DE ACA YPF</strong> invita a los alojamientos de la
+                  localidad a acercar sus datos de contacto y disponibilidad. De esta manera, la estación podrá orientar
+                  a los viajeros que consultan diariamente sobre dónde alojarse o qué alternativas existen en la zona.
+                </p>
+
+                <div className="my-8">
+                  <Image
+                    src="/images/logo-articulo-iniciativa.jpg"
+                    alt="AM Celta - Concesionario Oficial ACA"
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-md mx-auto"
+                  />
+                </div>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  La iniciativa busca fortalecer el vínculo entre prestadores y visitantes, potenciando la oferta
+                  turística y reafirmando a Villa del Dique como un destino elegido en el Valle de Calamuchita. Los
+                  responsables de cabañas, hosterías, hoteles y casas de alquiler pueden acercar su información
+                  directamente en la estación de servicio, contribuyendo a un trabajo conjunto que beneficia a toda la
+                  comunidad.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 my-8">
+                  <Image
+                    src="/images/iniciativa-aca-ypf-am-celta-articulo-2.webp"
+                    alt="Señalización YPF en Villa del Dique"
+                    width={400}
+                    height={300}
+                    className="rounded-lg shadow-md w-full"
+                  />
+                  <Image
+                    src="/images/iniciativa-aca-ypf-am-celta-articulo-3.webp"
+                    alt="Atención personalizada en ACA YPF Villa del Dique"
+                    width={400}
+                    height={300}
+                    className="rounded-lg shadow-md w-full"
+                  />
+                </div>
+
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-6 my-8">
+                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">Contacto ACA YPF Villa del Dique</h3>
+                  <div className="space-y-2">
+                    <p className="text-gray-700">
+                      <strong>Teléfono/WhatsApp:</strong>{" "}
+                      <a
+                        href="https://wa.me/5493546501444"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        +54 9 3546 50-1444
+                      </a>
+                    </p>
+                    <p className="text-gray-700">
+                      <strong>Instagram:</strong>{" "}
+                      <a
+                        href="https://www.instagram.com/aca.ypf.vdd/"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        @aca.ypf.vdd
+                      </a>
+                    </p>
+                    <p className="text-gray-700">
+                      <strong>Ubicación:</strong>{" "}
+                      <a
+                        href="https://share.google/7lQSgGpbIq4u22bKU"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ver en Google Maps
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="my-8">
+                  <video
+                    controls
+                    className="w-full rounded-lg shadow-md"
+                    poster="/images/portada-articulo-iniciativa-aca-ypf-am-celta.webp"
+                  >
+                    <source src="/videos/video-aca-ypf-villa-del-dique.mp4" type="video/mp4" />
+                    Tu navegador no soporta el elemento de video.
+                  </video>
+                </div>
+              </div>
+
+              <ShareButtons
+                url={`${process.env.NEXT_PUBLIC_SITE_URL || "https://villadeldique.com.ar"}/noticias/aca-ypf-invita-alojamientos-disponibilidad`}
+                title="ACA YPF Villa del Dique invita a los alojamientos a compartir su disponibilidad"
+              />
+            </div>
+          </article>
+
+          <div className="mt-12">
+            <Link href="/noticias" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Volver a noticias
+            </Link>
+          </div>
+        </div>
+
+        <NewsAdvertisingCarousel />
+      </div>
+    </>
+  )
+}
