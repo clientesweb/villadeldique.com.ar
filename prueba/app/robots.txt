@@ -1,0 +1,68 @@
+# Robots.txt para Villa del Dique Digital
+# https://www.villadeldique.com.ar
+
+User-agent: *
+Allow: /
+
+# Permitir acceso a todas las páginas principales
+Allow: /noticias
+Allow: /turismo
+Allow: /suscribirse
+Allow: /contacto
+Allow: /nosotros
+Allow: /politica-privacidad
+Allow: /terminos
+Allow: /licencia
+
+# Permitir acceso a todas las noticias individuales
+Allow: /noticias/*
+
+# Permitir acceso a recursos estáticos
+Allow: /images/
+Allow: /icons/
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /manifest.json
+
+# Bloquear archivos de sistema y configuración
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.well-known/
+Disallow: /admin/
+Disallow: /private/
+
+# Configuración específica para bots de noticias
+User-agent: Googlebot-News
+Allow: /
+Allow: /noticias
+Allow: /noticias/*
+Crawl-delay: 0.1
+
+# Configuración para bots de imágenes
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /icons/
+Crawl-delay: 0.1
+
+# Configuración para bots de video
+User-agent: Googlebot-Video
+Allow: /
+Crawl-delay: 0.1
+
+# Configuración específica para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+# Sitemaps
+Sitemap: https://www.villadeldique.com.ar/sitemap.xml
+Sitemap: https://www.villadeldique.com.ar/news-sitemap.xml
+
+Crawl-delay: 0.2
+
+# Este sitio web es el portal de noticias de Villa del Dique, Córdoba, Argentina
+# Contenido: Noticias locales, turismo, información comunitaria, emprendimientos, comercios, entrevistas
+# Audiencia: Residentes y visitantes de Villa del Dique, Valle de Calamuchita y alrededores
+# Idioma: Español (Argentina)
+# Keywords: Villa del Dique, noticias, turismo, Córdoba, Argentina, Valle de Calamuchita, emprendimientos, medio digital, comercios, entrevistas, Dique Los Molinos
+# Última actualización: 2024-12-19

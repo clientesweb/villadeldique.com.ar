@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Página de noticias -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Página de turismo -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/turismo</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Página de suscripción -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/suscribirse</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Página de contacto -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/contacto</loc>
+    <lastmod>2025-09-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Noticias individuales -->
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/bomberos-voluntarios-nuevo-sitio-web</loc>
+    <lastmod>2025-09-20T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-20T00:00:00+00:00</news:publication_date>
+      <news:title>Bomberos Voluntarios de Villa del Dique estrenan sitio web oficial</news:title>
+      <news:keywords>Villa del Dique, bomberos voluntarios, sitio web, comunidad</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/dia-del-psicopedagogo</loc>
+    <lastmod>2025-09-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-17T00:00:00+00:00</news:publication_date>
+      <news:title>Día del Psicopedagogo: homenaje a Jean Piaget y a los profesionales de la educación</news:title>
+      <news:keywords>Villa del Dique, día del psicopedagogo, educación, Jean Piaget, aprendizaje</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/inauguracion-polo-cultural-asociacion</loc>
+    <lastmod>2025-09-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-12T00:00:00+00:00</news:publication_date>
+      <news:title>Villa del Dique celebra la inauguración de su nuevo Polo Cultural</news:title>
+      <news:keywords>Villa del Dique, Polo Cultural, inauguración, cultura, anfiteatro, Casa de la Cultura</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/entrevista-bomberos-voluntarios</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-11T00:00:00+00:00</news:publication_date>
+      <news:title>Bomberos Voluntarios de Villa del Dique: Vocación, Riesgo y Compromiso Comunitario</news:title>
+      <news:keywords>Villa del Dique, bomberos voluntarios, entrevista, seguridad, comunidad</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/campana-prevencion-incendios</loc>
+    <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-10T00:00:00+00:00</news:publication_date>
+      <news:title>Campaña de Prevención de Incendios en Villa del Dique</news:title>
+      <news:keywords>Villa del Dique, prevención incendios, seguridad, campaña, bomberos</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/emprender-villa-del-dique</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-09T00:00:00+00:00</news:publication_date>
+      <news:title>Emprender en el Paraíso: Historias que laten en Villa del Dique</news:title>
+      <news:keywords>Villa del Dique, emprendedores, negocios locales, Rincón Natural, Namaskar, Iowa.ar</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/septiembre-amarillo-prevencion</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-07T00:00:00+00:00</news:publication_date>
+      <news:title>Septiembre Amarillo: prevenir es acompañar</news:title>
+      <news:keywords>Villa del Dique, septiembre amarillo, prevención suicidio, salud mental</news:keywords>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://www.villadeldique.com.ar/noticias/inauguracion-polo-cultural</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+    <news:news>
+      <news:publication>
+        <news:name>Villa del Dique Digital</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2025-09-06T00:00:00+00:00</news:publication_date>
+      <news:title>Inauguración del Polo Cultural de Villa del Dique</news:title>
+      <news:keywords>Villa del Dique, Polo Cultural, inauguración, cultura, desarrollo comunitario</news:keywords>
+    </news:news>
+  </url>
+
+</urlset>
